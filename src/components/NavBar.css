@@ -1,4 +1,37 @@
-.nav-bar .first-container{
+.nav-bar{
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    background-color: yellowgreen;
+}
+
+
+.nav-bar > .global-container > .first-container{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    height: 80px;
+    max-width: 1500px;
+}
+
+.nav-bar > .global-container > .first-container > .nav-bar-icons{
+    width: 70px;
     display: flex;
     justify-content: space-between;
 }
+
+.nav-bar > .global-container > .first-container > .nav-bar-icons > .nav-bar-icon{
+    font-size: 27px;
+    font-weight: 200;
+}
+/* .nav-bar > .global-container > .first-container > .logo{
+    color: #FFFFFF;
+}
+
+.nav-bar > .global-container > .first-container > .icons > {
+    color: #FFFFFF;
+} */
