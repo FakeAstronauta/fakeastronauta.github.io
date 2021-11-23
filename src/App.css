@@ -1,7 +1,21 @@
-.no-link-style{
+.link-style-white{
     text-decoration: none;
+    color: white;
+    transition: 0.5s;
 }
 
-.logo-white{
-    color: white;
+.link-style-white:hover{
+    color: #000000;
+}
+
+.play-fair-font {
+    font-family: 'Playfair Display', serif;
+}
+
+.inter{
+    font-family: 'Inter', sans-serif;
+}
+
+.cinzel{
+    font-family: 'Cinzel', serif;
 }
