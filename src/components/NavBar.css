@@ -1,11 +1,12 @@
 .nav-bar{
+    position: absolute;
+    width: 100%;
     height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    position: sticky;
-    background-color: yellowgreen;
+    position: fixed;
 }
 
 
@@ -18,6 +19,11 @@
     max-width: 1500px;
 }
 
+.nav-bar > .global-container > .first-container > .logo{
+    font-size: 28px;
+
+}
+
 .nav-bar > .global-container > .first-container > .nav-bar-icons{
     width: 70px;
     display: flex;
@@ -28,6 +34,33 @@
     font-size: 27px;
     font-weight: 200;
 }
+
+.nav-bar > .global-container > .nav-menu{
+    /* background-color: violet; */
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar > .global-container > .nav-menu > .nav-item{
+    list-style: none;
+    margin: 0;
+}
+
+.nav-bar > .global-container > .nav-menu > .nav-item > .nav-links{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.a{
+    background-image: src('pexels-godisable-jacob-965324.jpg');
+    
+}
+
 /* .nav-bar > .global-container > .first-container > .logo{
     color: #FFFFFF;
 }

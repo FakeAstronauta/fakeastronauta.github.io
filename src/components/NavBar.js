@@ -15,39 +15,55 @@ export default function NavBar(){
 //         let data = await raw.json();
 //         setBackground(data)
 //     }, []);
+    const shoot = () => {
+        let a = document.getElementsByClassName('link-style-white');
+        for (let l of a){
+            l.style.color='black'
+        }
+    }
+
     return(
+        <>
         <nav className="nav-bar">
             <div className="global-container" >
                 <div  className="first-container">
-                    <Link to = '/' className='logo-white no-link-style'>MONTREAL BOTÉZ</Link>
+                    <Link to = '/' className='logo link-style-white cinzel'>MONTREAL BOTÉZ</Link>
+                    <button onMouseOver={shoot}>Take the shot!</button>
                     <div className="nav-bar-icons">
-                        <Link to = '/' class="logo-white nav-bar-icon material-icons no-link-style">
+                        <Link to = '/' class="nav-bar-icon material-icons link-style-white">
                             search
                         </Link>
-                        <Link to = '/' class="logo-white material-icons no-link-style">
+                        <Link to = '/' class="material-icons link-style-white">
                             person_outline
                         </Link>
                     </div>
                     {/* {background && <img src={`${background.src.landscape})`}></img>} */}
                 </div>
-                <div  className="second-container">
-                    <ul>
-                        <li className="nav-item">
-                            <Link to='/' className='nav-links' >TODAY'S</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to='/' className='nav-links' >HOT OUTFITS</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to='/' className='nav-links' >OUR ACCESORIES</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to='/' className='nav-links' >FRAGANCES</Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                <ul className='nav-menu'>
+                    <li className="nav-item" >
+                        <Link to='/' className='nav-links link-style-white' >TODAY'S</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to='/' className='nav-links link-style-white' >HOT OUTFITS</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to='/' className='nav-links link-style-white' >OUR ACCESORIES</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to='/' className='nav-links link-style-white' >FRAGANCES</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to='/' className='nav-links link-style-white' >MAKEUP</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to='/' className='nav-links link-style-white' >GIFTS</Link>
+                    </li>
+                </ul> 
+            </div> 
+            <a></a>
+        </nav>  
+        <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img>
+        </>
         );
 
     
