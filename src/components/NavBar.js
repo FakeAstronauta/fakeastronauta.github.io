@@ -4,8 +4,12 @@ import {useState, useEffect} from 'react';
 
 import  './NavBar.css'
 import  '../App.css'
+import DropDown from './DropDown';
 
 export default function NavBar(){
+    const [over, setOver] = useState(false);
+    const deal = () => setOver(true)
+    const as = () => setOver(false)
 //     const [background, setBackground] = useState(null);
 
 //     useEffect(async ()=>{
@@ -15,20 +19,29 @@ export default function NavBar(){
 //         let data = await raw.json();
 //         setBackground(data)
 //     }, []);
-    const shoot = () => {
+
+    useEffect(() => {
+        let n = document.getElementsByClassName('nav-bar');
+        n[0].style.backgroundColor = over ? 'white' : 'transparent';
+        n[0].style.transition = '.3s';
+
+        let d = document.getElementsByClassName('drop-down-menu');
+        d[0].style.backgroundColor = over ? 'white' : 'transparent';
+
+
+
         let a = document.getElementsByClassName('link-style-white');
         for (let l of a){
-            l.style.color='black'
+            l.style.color= over ? 'black' : 'white';
         }
-    }
+    }, [over]);
 
     return(
         <>
         <nav className="nav-bar">
             <div className="global-container" >
-                <div  className="first-container">
+                <div  className="first-container" onMouseOver={as}>
                     <Link to = '/' className='logo link-style-white cinzel'>MONTREAL BOTÉZ</Link>
-                    <button onMouseOver={shoot}>Take the shot!</button>
                     <div className="nav-bar-icons">
                         <Link to = '/' class="nav-bar-icon material-icons link-style-white">
                             search
@@ -37,34 +50,31 @@ export default function NavBar(){
                             person_outline
                         </Link>
                     </div>
-                    {/* {background && <img src={`${background.src.landscape})`}></img>} */}
                 </div>
-                <ul className='nav-menu'>
+                <ul className='nav-menu' >
                     <li className="nav-item" >
-                        <Link to='/' className='nav-links link-style-white' >TODAY'S</Link>
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={deal} >TODAY'S</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link to='/' className='nav-links link-style-white' >HOT OUTFITS</Link>
+                    <li className="nav-item" >
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={deal} >HOT OUTFITS</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link to='/' className='nav-links link-style-white' >OUR ACCESORIES</Link>
+                    <li className="nav-item" >
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={deal} >OUR ACCESORIES</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link to='/' className='nav-links link-style-white' >FRAGANCES</Link>
+                    <li className="nav-item" >
+                        <Link to='/' className='nav-links link-style-white'onMouseOver={deal}  >FRAGANCES</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link to='/' className='nav-links link-style-white' >MAKEUP</Link>
+                    <li className="nav-item" >
+                        <Link to='/' className='nav-links link-style-white'onMouseOver={deal}  >MAKEUP</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link to='/' className='nav-links link-style-white' >GIFTS</Link>
+                    <li className="nav-item" >
+                        <Link to='/' className='nav-links link-style-white'onMouseOver={deal}  >GIFTS</Link>
                     </li>
                 </ul> 
             </div> 
-            <a></a>
         </nav>  
+        {over && <DropDown/>}
         <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img>
         </> 
         );
-
-    
 }
