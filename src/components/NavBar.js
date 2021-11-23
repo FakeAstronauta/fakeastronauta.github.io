@@ -63,7 +63,7 @@ export default function NavBar(){
             <a></a>
         </nav>  
         <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img>
-        </>
+        </> 
         );
 
     
