@@ -2,14 +2,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 
-import  './NavBar.css'
-import  '../App.css'
+import './NavBar.css'
+import '../App.css'
 import DropDown from './DropDown';
 
 export default function NavBar(){
     const [over, setOver] = useState(false);
     const deal = () => setOver(true)
-    const as = () => setTimeout(()=>{setOver(false)}, 2000);
+    const as = () => setOver(false);
 //     const [background, setBackground] = useState(null);
 
 //     useEffect(async ()=>{
@@ -30,8 +30,12 @@ export default function NavBar(){
 
         
         // slideSource.classList.toggle('fade');
-        var slideSource = document.getElementById('drop-down-menu');
-        slideSource.style.opacity = over ? 1 : 0
+        
+        /** esto se acciona cuando el elemento ya esta creado */
+        if(over == true){
+            var slideSource = document.getElementById('drop-down-menu');
+            slideSource.style.display = 'block'}
+        
 
         let a = document.getElementsByClassName('link-style-white');
         for (let l of a){

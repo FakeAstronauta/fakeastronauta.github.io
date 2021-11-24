@@ -1,2 +1,4 @@
 11/23/2021
-- el efecto fade in fade out me daba problemas en el dropdown menu. probare solo usar hover y con el set time out lanzare el evento al terminar la animacion
+- [sin solucionar]el efecto fade in fade out me daba problemas en el dropdown menu. 
+    -[no funciono] probare solo usar hover y con el set time out lanzare el evento al terminar la animacion
+    -vere como puedo usar el parametro transitionends [no pude lograrlo] el evento ocurria cada que ponia el cursor encima y ya no tengo tiempo
