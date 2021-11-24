@@ -9,7 +9,7 @@ import DropDown from './DropDown';
 export default function NavBar(){
     const [over, setOver] = useState(false);
     const deal = () => setOver(true)
-    const as = () => setOver(false)
+    const as = () => setTimeout(()=>{setOver(false)}, 2000);
 //     const [background, setBackground] = useState(null);
 
 //     useEffect(async ()=>{
@@ -21,14 +21,17 @@ export default function NavBar(){
 //     }, []);
 
     useEffect(() => {
-        let n = document.getElementsByClassName('nav-bar');
-        n[0].style.backgroundColor = over ? 'white' : 'transparent';
-        n[0].style.transition = '.3s';
+        // let n = document.getElementsByClassName('nav-bar');
+        // n[0].style.backgroundColor = over ? 'white' : 'transparent';
+        // n[0].style.;
 
-        let d = document.getElementsByClassName('drop-down-menu');
-        d[0].style.backgroundColor = over ? 'white' : 'transparent';
+        // let d = document.getElementsByClassName('drop-down-menu');
+        // d[0].style.backgroundColor = over ? 'white' : 'transparent';
 
-
+        
+        // slideSource.classList.toggle('fade');
+        var slideSource = document.getElementById('drop-down-menu');
+        slideSource.style.opacity = over ? 1 : 0
 
         let a = document.getElementsByClassName('link-style-white');
         for (let l of a){

@@ -4,12 +4,14 @@ import {useState, useEffect} from 'react';
 
 export default function DropDown(){
     useEffect(() => {
-        let d = document.getElementsByClassName('drop-down-menu');
-        d[0].style.backgroundColor = over ? 'white' : 'transparent';
+        // var slideSource = document.getElementById('drop-down-menu');
+        // slideSource.style.opacity = 1;
+        // slideSource.classList.toggle('fade');
+
     }, [])
 
     return(
-        <div className = 'drop-down-menu'></div>
+        <div id = 'drop-down-menu'></div>
         );
 
 }

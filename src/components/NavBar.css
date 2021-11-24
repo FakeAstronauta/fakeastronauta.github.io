@@ -7,8 +7,17 @@
     align-items: center;
     font-size: 1.2rem;
     position: fixed;
+    animation: append-animate 0.2s linear;
 }
 
+@keyframes append-animate {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;	
+    }
+}
 
 .nav-bar > .global-container > .first-container{
     justify-content: space-between;
