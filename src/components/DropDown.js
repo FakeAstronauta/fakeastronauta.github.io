@@ -7,10 +7,8 @@ export default function DropDown(props){
         
     // }, [])
 
-
-
     return(
-        <div id='drop-down-menu'></div>
+        <div id='drop-down-menu' ></div>
         );
 
 }

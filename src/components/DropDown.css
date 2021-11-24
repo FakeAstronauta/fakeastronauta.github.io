@@ -4,20 +4,16 @@
     background-color: #ffffff;
     transform: translateY(115px);
     position: absolute;
-    animation: append-animate 0.3s linear;
-    display: none;  
-    
-    /* opacity: 1;
-    transition: opacity .5s; */
+    transition: opacity .5s;
 }
 
-/* #drop-down-menu:hover {
+.none{
     opacity: 0;
-} */
+}
 
-/* #drop-down-menu.fade {
-    opacity: 0;
-  } */
+.enter{
+    animation: append-animate 0.3s linear;
+}
 
 @keyframes append-animate {
     from {

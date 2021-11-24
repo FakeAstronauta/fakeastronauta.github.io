@@ -8,8 +8,11 @@ import DropDown from './DropDown';
 
 export default function NavBar(){
     const [over, setOver] = useState(false);
+    const [ready, setReady] = useState(false);  // used to avoid first render
     const deal = () => setOver(true)
     const as = () => setOver(false);
+    const r = () => setReady(true); // invoked under transition end block
+
 //     const [background, setBackground] = useState(null);
 
 //     useEffect(async ()=>{
@@ -20,22 +23,26 @@ export default function NavBar(){
 //         setBackground(data)
 //     }, []);
 
+    
+
     useEffect(() => {
-        // let n = document.getElementsByClassName('nav-bar');
-        // n[0].style.backgroundColor = over ? 'white' : 'transparent';
-        // n[0].style.;
-
-        // let d = document.getElementsByClassName('drop-down-menu');
-        // d[0].style.backgroundColor = over ? 'white' : 'transparent';
-
-        
-        // slideSource.classList.toggle('fade');
-        
         /** esto se acciona cuando el elemento ya esta creado */
-        if(over == true){
-            var slideSource = document.getElementById('drop-down-menu');
-            slideSource.style.display = 'block'}
-        
+        if(over == false && ready == true){
+            var par = document.querySelector("#drop-down-menu");
+            par.classList.remove("enter");
+            par.classList.add("none");
+            if(ready == true){
+                par.addEventListener("transitionend", () => {
+                    par.style.display = 'none';
+                })
+            }
+            r()
+        }else if(over == true){
+            var par = document.querySelector("#drop-down-menu");
+            par.style.display = 'block';
+            par.classList.remove("none");
+            par.classList.add("enter");
+        }
 
         let a = document.getElementsByClassName('link-style-white');
         for (let l of a){
@@ -80,7 +87,7 @@ export default function NavBar(){
                 </ul> 
             </div> 
         </nav>  
-        {over && <DropDown/>}
+        <DropDown/>
         <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img>
         </> 
         );
