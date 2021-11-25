@@ -7,7 +7,9 @@
     align-items: center;
     font-size: 1.2rem;
     position: fixed;
+    background-color: transparent;
     animation: append-animate 0.2s linear;
+    z-index: 1;
 }
 
 @keyframes append-animate {

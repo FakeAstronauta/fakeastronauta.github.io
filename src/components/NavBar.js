@@ -7,12 +7,21 @@ import '../App.css'
 import DropDown from './DropDown';
 
 export default function NavBar(){
-    const [over, setOver] = useState(false);
-    const [ready, setReady] = useState(false);  // used to avoid first render
+    const [contentNumber, setcontentNumber] = useState(0); // 
+    const changeToOne = () => setcontentNumber(0)
+    const changeToTwo = () => setcontentNumber(1)
+    const changeToThree = () => setcontentNumber(2)
+    const changeToFour = () => setcontentNumber(3)
+    const changeToFive= () => setcontentNumber(4)
+    const changeToSix = () => setcontentNumber(5)
+    
+    const [over, setOver] = useState(false); // display dropdown menu
     const deal = () => setOver(true)
-    const as = () => setOver(false);
-    const r = () => setReady(true); // invoked under transition end block
+    const overToTrue = () => setOver(false);
 
+    const [ready, setReady] = useState(false);  // used to avoid first render
+    const r = () => setReady(true); // invoked under transition end block
+    
 //     const [background, setBackground] = useState(null);
 
 //     useEffect(async ()=>{
@@ -27,7 +36,7 @@ export default function NavBar(){
 
     useEffect(() => {
         /** esto se acciona cuando el elemento ya esta creado */
-        if(over == false && ready == true){
+        if(over == false){
             var par = document.querySelector("#drop-down-menu");
             par.classList.remove("enter");
             par.classList.add("none");
@@ -39,10 +48,14 @@ export default function NavBar(){
             r()
         }else if(over == true){
             var par = document.querySelector("#drop-down-menu");
-            par.style.display = 'block';
+            par.style.display = 'flex';
             par.classList.remove("none");
             par.classList.add("enter");
         }
+        
+
+        // let n = document.getElementsByClassName('nav-bar');
+        // n[0].style.backgroundColor = over ? 'white' : 'transparent';
 
         let a = document.getElementsByClassName('link-style-white');
         for (let l of a){
@@ -54,7 +67,7 @@ export default function NavBar(){
         <>
         <nav className="nav-bar">
             <div className="global-container" >
-                <div  className="first-container" onMouseOver={as}>
+                <div  className="first-container" onMouseOver={overToTrue}>
                     <Link to = '/' className='logo link-style-white cinzel'>MONTREAL BOTÉZ</Link>
                     <div className="nav-bar-icons">
                         <Link to = '/' class="nav-bar-icon material-icons link-style-white">
@@ -66,28 +79,28 @@ export default function NavBar(){
                     </div>
                 </div>
                 <ul className='nav-menu' >
-                    <li className="nav-item" >
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={deal} >TODAY'S</Link>
+                    <li className="nav-item" onMouseOver={changeToOne}>
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={deal}>TODAY'S</Link>
                     </li>
-                    <li className="nav-item" >
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={deal} >HOT OUTFITS</Link>
+                    <li className="nav-item" onMouseOver={changeToTwo}>
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={deal}>HOT OUTFITS</Link>
                     </li>
-                    <li className="nav-item" >
+                    <li className="nav-item" onMouseOver={changeToThree}>
                         <Link to='/' className='nav-links link-style-white' onMouseOver={deal} >OUR ACCESORIES</Link>
                     </li>
-                    <li className="nav-item" >
+                    <li className="nav-item" onMouseOver={changeToFour}>
                         <Link to='/' className='nav-links link-style-white'onMouseOver={deal}  >FRAGANCES</Link>
                     </li>
-                    <li className="nav-item" >
+                    <li className="nav-item" onMouseOver={changeToFive}>
                         <Link to='/' className='nav-links link-style-white'onMouseOver={deal}  >MAKEUP</Link>
                     </li>
-                    <li className="nav-item" >
+                    <li className="nav-item" onMouseOver={changeToSix}>
                         <Link to='/' className='nav-links link-style-white'onMouseOver={deal}  >GIFTS</Link>
                     </li>
                 </ul> 
             </div> 
         </nav>  
-        <DropDown/>
+        <DropDown contentNumber={contentNumber}/>
         <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img>
         </> 
         );
