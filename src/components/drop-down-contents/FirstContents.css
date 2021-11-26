@@ -1,6 +1,32 @@
-#dropdown-contents{
-    background-color: yellow;
-    height: 349px;
-    width: 90vw;
 
+#dropdown-contents{
+    height: 309px;
+    width: 90vw;
+    max-width: 1250px;
+}
+
+#dropdown-contents > ul{
+    padding: 0;
+    text-decoration: none;
+}
+
+#dropdown-contents > ul > li{
+    list-style: none;
+    margin: 0 0 20px 0;
+}
+
+#dropdown-contents > ul > .title{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+#dropdown-contents > ul > li > .link{
+    text-decoration: none;
+    color: #000000;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: .5px;
 }

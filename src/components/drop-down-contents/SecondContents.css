@@ -1,6 +1,6 @@
 #dropdown-contents-two{
     background-color: rgb(255, 123, 0);
-    height: 349px;
+    height: 309px;
     width: 90vw;
-
+    max-width: 1250px;
 }
