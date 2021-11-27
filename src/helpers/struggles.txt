@@ -4,3 +4,7 @@
     -[no funciono] probare solo usar hover y con el set time out lanzare el evento al terminar la animacion
     -vere como puedo usar el parametro transitionends [no pude lograrlo] el evento ocurria cada que ponia el cursor encima y ya no tengo tiempo
     -ahora probare modificando las clases :D, DIO RESULTADO
+
+26/11/2021
+    tengo un problema con el efecto de subrayado 
+    el transitionend se activa demasiadas veces
