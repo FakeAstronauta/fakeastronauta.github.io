@@ -8,8 +8,14 @@ import DropDown from './DropDown';
 
 export default function NavBar(){
     const [contentNumber, setcontentNumber] = useState(0);
+    const [lastcontentNumber, setLastcontentNumber] = useState(0); // the last contentNumber    
 
+    // used to show the underline content, if the mouse is over or out the elements
     const [mouseOut, setMouseOut] = useState(true);
+    
+    // only to chech when the cursos passes from one element to another
+    const [state, setState] = useState(true)
+
     // const completed = () => settransitionCompleted(!transitionCompleted);
     
     const [over, setOver] = useState(false); // display dropdown menu
@@ -29,6 +35,8 @@ export default function NavBar(){
 
 /** esto se acciona cuando el elemento ya esta creado y remueve ciertos elementos de la pagina*/
     useEffect(() => {
+        console.log('accionado')
+
         if(over == false){
             // this deletes the dropdown menu
             var par = document.querySelector("#drop-down-menu");
@@ -48,15 +56,7 @@ export default function NavBar(){
             // this shows the dropdown menu
         }else if(over == true){
             
-            // used to show the underline content
-            if(mouseOut == true){
-                // used to hide the underline style
-                var underlineEffect = document.querySelectorAll(".nav-bar > .global-container > .nav-menu > .nav-item > .nav-links");
-                underlineEffect[contentNumber].style.backgroundSize = '0% 1px';
-            }else if(mouseOut == false){
-                var underlineEffect = document.querySelectorAll(".nav-bar > .global-container > .nav-menu > .nav-item > .nav-links");
-                underlineEffect[contentNumber].style.backgroundSize = '100% 1px';
-            }
+            
 
             var par = document.querySelector("#drop-down-menu");  /// el eror parece ser que se trata de leer cuando aun esta en display none 
             par.style.display = 'flex';
@@ -69,17 +69,31 @@ export default function NavBar(){
             // )
         }
         
+        // used to show the underline content
+        if(mouseOut == true){
+            // used to hide the underline style
+            var underlineEffect = document.querySelectorAll(".nav-bar > .global-container > .nav-menu > .nav-item > .nav-links");
+            underlineEffect[contentNumber].style.backgroundSize = '0% 1px';
+            console.log(mouseOut)
+        }else if(mouseOut == false){
+            var underlineEffect = document.querySelectorAll(".nav-bar > .global-container > .nav-menu > .nav-item > .nav-links");
+            underlineEffect[contentNumber].style.backgroundSize = '100% 1px';
+            setLastcontentNumber(contentNumber)
+            console.log(lastcontentNumber)
+
+        }
+
         let a = document.getElementsByClassName('link-style-white');
         for (let l of a){
             l.style.color= over ? 'black' : 'white';
         }
-    }, [over]);
+    }, [over, mouseOut, state]);
 
     return(
         <>
         <nav className="nav-bar">
             <div className="global-container" >
-                <div  className="first-container" onMouseOver={() => {setOver(false)}}>
+                <div  className="first-container" onMouseOver={() => {setMouseOut(true); setOver(false)}}>
                     <Link to = '/' className='logo link-style-white cinzel'>MONTREAL BOTÉZ</Link>
                     <div className="nav-bar-icons">
                         <Link to = '/' class="nav-bar-icon material-icons link-style-white">
@@ -97,17 +111,17 @@ export default function NavBar(){
                     <li className="nav-item" onMouseOver={() => {setcontentNumber(1)}}>
                         <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setOver(true)}}>HOT OUTFITS</Link>
                     </li>
-                    <li className="nav-item" onMouseOver={() => {setcontentNumber(2)}} onMouseLeave={()=>{console.log('out')}}>
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setOver(true)}} >OUR ACCESORIES</Link>
+                    <li className="nav-item" onMouseOver={() => {setcontentNumber(2); setMouseOut(false)}}>
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setOver(true); setState(!state)}} >OUR ACCESORIES</Link>
                     </li>
-                    <li className="nav-item" onMouseOver={() => {setcontentNumber(3)}}>
-                        <Link to='/' className='nav-links link-style-white'onMouseOver={() => {setOver(true)}}  >FRAGANCES</Link>
+                    <li className="nav-item" onMouseOver={() => {setcontentNumber(3); setMouseOut(false)}}>
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setOver(true); setState(!state)}}  >FRAGANCES</Link>
                     </li>
                     <li className="nav-item" onMouseOver={() => {setcontentNumber(4)}}>
-                        <Link to='/' className='nav-links link-style-white'onMouseOver={() => {setOver(true)}}  >MAKEUP</Link>
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setOver(true)}}  >MAKEUP</Link>
                     </li>
                     <li className="nav-item" onMouseOver={() => {setcontentNumber(5)}}>
-                        <Link to='/' className='nav-links link-style-white'onMouseOver={() => {setOver(true)}}  >GIFTS</Link>
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setOver(true)}}  >GIFTS</Link>
                     </li>
                 </ul> 
             </div> 
