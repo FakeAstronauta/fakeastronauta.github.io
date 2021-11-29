@@ -5,8 +5,8 @@ import './FirstContents.css'
 
 export default function FirstContents(props){
     return(
-        <div>
-            <div id='dropdown-contents' className='inter' >
+        // <div>
+            <div className='dropdown-contents inter abs' style={{zIndex:0}}>
                 <ul>
                     <li className='title'>LOREM IPSUM</li>
                     <li><Link to='/' class='link'>DOLOR, SIT AMET</Link></li>
@@ -16,7 +16,7 @@ export default function FirstContents(props){
                     <li><Link to='/' class='link'>SINT ODIT TENETUR</Link></li>
                 </ul>
             </div>
-        </div>
+        // </div>
         
     )
 }
