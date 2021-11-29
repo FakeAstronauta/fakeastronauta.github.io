@@ -8,12 +8,12 @@ import DropDown from './DropDown';
 
 export default function NavBar(){
     const [contentNumber, setcontentNumber] = useState(null);
-    const [lastcontentNumber, setLastcontentNumber] = useState(0); // the last contentNumber    
+    const [lastcontentNumber, setLastcontentNumber] = useState(null); // the last contentNumber    
 
     // used to show the underline content, if the mouse is over or out the elements
     const [mouseOut, setMouseOut] = useState(true);
     
-    // only to chech when the cursos passes from one element to another
+    // only to chech when the cursor passes from one element to another
     const [state, setState] = useState(true)
 
     const [over, setOver] = useState(false); // display dropdown menu
@@ -57,8 +57,10 @@ export default function NavBar(){
         }
         
         // used to hide the underline style of the last element when the cursor is over another or out the menu
-        var underlineEffect = document.querySelectorAll(".nav-bar > .global-container > .nav-menu > .nav-item > .nav-links");
-        underlineEffect[lastcontentNumber].style.backgroundSize = '0% 1px';
+        if(lastcontentNumber != null){
+            var underlineEffect = document.querySelectorAll(".nav-bar > .global-container > .nav-menu > .nav-item > .nav-links");
+            underlineEffect[lastcontentNumber].style.backgroundSize = '0% 1px';
+        }
         
         if (mouseOut == false){
             // used to show the underline content if the mouse is over
@@ -73,7 +75,6 @@ export default function NavBar(){
         for (let l of a){
             l.style.color= over ? 'black' : 'white';
         }
-
     }, [over, state]);
 
     return(
@@ -98,17 +99,17 @@ export default function NavBar(){
                     <li className="nav-item">
                         <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(1); setMouseOut(false); setOver(true); setState(!state)}}>HOT OUTFITS</Link>
                     </li>
-                    <li className="nav-item" onMouseOver={() => {setcontentNumber(2); setMouseOut(false)}}>
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setOver(true); setState(!state)}}>OUR ACCESORIES</Link>
+                    <li className="nav-item">
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(2); setMouseOut(false); setOver(true); setState(!state)}}>OUR ACCESORIES</Link>
                     </li>
-                    <li className="nav-item" onMouseOver={() => {setcontentNumber(3); setMouseOut(false)}}>
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setOver(true); setState(!state)}}>FRAGANCES</Link>
+                    <li className="nav-item">
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(3); setMouseOut(false); setOver(true); setState(!state)}}>FRAGANCES</Link>
                     </li>
-                    <li className="nav-item" onMouseOver={() => {setcontentNumber(4); setMouseOut(false)}}>
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setOver(true); setState(!state)}}>MAKEUP</Link>
+                    <li className="nav-item">
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(4); setMouseOut(false); setOver(true); setState(!state)}}>MAKEUP</Link>
                     </li>
-                    <li className="nav-item" onMouseOver={() => {setcontentNumber(5); setMouseOut(false)}}>
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setOver(true); setState(!state)}}>GIFTS</Link>
+                    <li className="nav-item">
+                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(5); setMouseOut(false); setOver(true); setState(!state)}}>GIFTS</Link>
                     </li>
                 </ul> 
             </div> 
