@@ -34,6 +34,10 @@ export default function NavBar(){
 /** esto se acciona cuando el elemento ya esta creado y remueve ciertos elementos de la pagina*/
     useEffect(() => {
 
+        const tr = () => {
+            par.style.display = 'none';
+        }
+
         if(over == false){
             // this deletes the dropdown menu
             var par = document.querySelector("#drop-down-menu");
@@ -41,19 +45,18 @@ export default function NavBar(){
 
             // used to avoid the first render and launch an event after transition
             if(ready == true){
-                if(par.style.display == 'none'){
-                    par.addEventListener("transitionend", () => {
-                        par.style.display = 'none';
-                    })
+                if(par.style.opacity == 0 && par.style.display == 'none'){
+                    par.addEventListener("transitionend", tr)
                 }
             }
-            r();
+
+            r()
 
         }else if(over == true){
             // this shows the dropdown menu
             var par = document.querySelector("#drop-down-menu"); 
-            par.classList.remove("none");
             par.style.display = 'flex';
+            par.classList.remove("none");
         }
         
         // used to hide the underline style of the last element when the cursor is over another or out the menu
@@ -75,13 +78,20 @@ export default function NavBar(){
         for (let l of a){
             l.style.color= over ? 'black' : 'white';
         }
+        
+        var par = document.querySelector("#drop-down-menu");
+        //This is the optional cleanup mechanism for effects. Every effect may return a function that cleans up after it
+        return () => {
+            par.removeEventListener("transitionend", tr)
+        }
+
     }, [over, state]);
 
     return(
         <>
         <nav className="nav-bar">
             <div className="global-container" >
-                <div  className="first-container" onMouseOver={() => {setMouseOut(true); setOver(false)}}>
+                <div className="first-container" onMouseOver={() => {setMouseOut(true); setOver(false)}}>
                     <Link to = '/' className='logo link-style-white cinzel'>MONTREAL BOTÉZ</Link>
                     <div className="nav-bar-icons">
                         <Link to = '/' class="nav-bar-icon material-icons link-style-white">
@@ -114,7 +124,7 @@ export default function NavBar(){
                 </ul> 
             </div> 
         </nav>  
-        <DropDown contentNumber={contentNumber}/>
+        <DropDown contentNumber={contentNumber} />
         <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img>
         </> 
         );

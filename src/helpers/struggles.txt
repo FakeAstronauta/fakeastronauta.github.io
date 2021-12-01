@@ -14,10 +14,17 @@
     // SOLO tuve que poner la clase que ocultaba el menu como condicion antes que se ocultara, para que al cambiar la transicion muy rapico estas no se interpusieran
 
 28/11/2021
-    [PENDIENTE]: como evitar que la app cargue dos veces, por ahora al props le sacare el valor 
-    en lugar de dejar el objeto
     cuando le paso props con un valor mayor a cero parece que carga dos veces, el problema
     principal ya lo arregle, pero tengo que decifrar porque ocurre eso
     se carga dos veces el props cuando el numero pasado es mayor a 1, como si renderiza mas 
     de una vez el navBar, si era eso, el 0 no lo renderizaba porque ya estaba como valor ultimo
     en navBar
+    [PENDIENTE]: como evitar que la app cargue dos veces, por ahora al props le sacare el valor 
+    en lugar de dejar el objeto
+
+30/11/2021
+    [PENDIENTE] que es mejor en react? renderizar los objetos opcionalmente o usar el display none
+
+30/11/2021
+    el evento transitionend cargaba demasiadas veces, esto era por el addeventlistener que no era eliminado al
+    final de cada render y se solo agregaba uno mas

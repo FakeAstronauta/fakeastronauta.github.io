@@ -1,12 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './ContentsStyels.css'
+import './ContentsStyles.css'
 
 
 export default function FirstContents(props){
     return(
         // <div>
-            <div className='dropdown-contents inter abs'>
+            <div className='dropdown-contents inter abs small-container' style={{background: 'skyblue'}}>
                 <ul>
                     <li className='title'>LOREM IPSUM</li>
                     <li><Link to='/' class='link'>DOLOR, SIT AMET</Link></li>

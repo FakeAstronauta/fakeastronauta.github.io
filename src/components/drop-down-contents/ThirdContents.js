@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './ContentsStyels.css'
+import './ContentsStyles.css'
 
 
 export default function ThirdContents(props){

@@ -9,9 +9,10 @@ import {Link} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 
 export default function DropDown(props){
-    let names = [<FirstContents/>, <SecondContents/>, <ThirdContents/>, <FourthContents/>]
+    // let names = [<FirstContents/>, <SecondContents/>, <ThirdContents/>, <FourthContents/>]
 
     const [lastProps, setLastProps] = useState(null)
+    const [state, setState] = useState(true)
     
     useEffect(() => {
             
@@ -27,22 +28,25 @@ export default function DropDown(props){
                 if(lastProps != null && lastProps != props.contentNumber){  // avoids that the 0 element deletes itself
                     underlineEffect[lastProps].classList.add('hide');
                     underlineEffect[lastProps].classList.remove('opaque');
+                    
                 }
             }
                 
             setLastProps(props.contentNumber)
                
-            /** como es esto posible? parece que si dejo el objeto reacciona a todos
-             *  los renders del elemento donde lo envian, como si en react todo esta
-             *  conectado*/
+    /** como es esto posible? parece que si dejo el objeto reacciona a todos
+     *  los renders del elemento donde lo envian, como si en react todo esta
+     *  conectado*/
     }, [props.contentNumber]) 
     
     return(
-        <div id='drop-down-menu' >
-            {names[0]}
-            {names[1]}
-            {names[2]}
-            {names[3]}
+        <div id='drop-down-menu'>
+            <div id="drop-down-container">
+                <FirstContents/>
+                <SecondContents/>
+                <ThirdContents/>
+                <FourthContents/>
+            </div>
         </div>
         );
 

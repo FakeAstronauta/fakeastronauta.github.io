@@ -4,20 +4,9 @@
     width: 90vw;
     max-width: 1250px;
     animation: append-animate 0.5s linear;
-    transition: opacity .5s;
+    transition: opacity .5s; 
     display: none;
     position: absolute;
-}
-
-.abs{
-}
-
-.hide{
-    opacity: 0;
-}
-
-.opaque{
-    opacity: 1;
 }
 
 @keyframes append-animate {
@@ -32,6 +21,7 @@
 .dropdown-contents > ul{
     padding: 0;
     text-decoration: none;
+    width: 225px;
 }
 
 .dropdown-contents > ul > li{
@@ -53,4 +43,27 @@
     font-size: 13px;
     font-weight: 400;
     letter-spacing: .5px;
+}
+
+/* optional classes  */
+
+.small-container{
+    width: 100vw;
+    /*max-width: 1250px; */
+    max-width: 500px;
+
+}
+
+.big-container{
+    width: 100vw;
+    max-width: 750px;
+
+}
+
+.hide{
+    opacity: 0;
+}
+
+.opaque{
+    opacity: 1;
 }
