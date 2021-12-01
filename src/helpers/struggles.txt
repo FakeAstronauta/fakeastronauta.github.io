@@ -23,7 +23,9 @@
     en lugar de dejar el objeto
 
 30/11/2021
-    [PENDIENTE] que es mejor en react? renderizar los objetos opcionalmente o usar el display none
+    [PENDIENTE] que es mejor en react? renderizar los objetos opcionalmente o renderizar 
+    todos y usar el display none
+    
 
 30/11/2021
     el evento transitionend cargaba demasiadas veces, esto era por el addeventlistener que no era eliminado al

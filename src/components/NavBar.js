@@ -34,6 +34,7 @@ export default function NavBar(){
 /** esto se acciona cuando el elemento ya esta creado y remueve ciertos elementos de la pagina*/
     useEffect(() => {
 
+        // function called when transition ends
         const tr = () => {
             par.style.display = 'none';
         }

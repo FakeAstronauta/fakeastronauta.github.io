@@ -5,8 +5,8 @@ import './ContentsStyles.css'
 
 export default function FirstContents(props){
     return(
-        // <div>
-            <div className='dropdown-contents inter abs small-container' style={{background: 'skyblue'}}>
+        <div className='dropdown-contents'>
+            <div className='small-container inter' style={{background: 'skyblue'}}>
                 <ul>
                     <li className='title'>LOREM IPSUM</li>
                     <li><Link to='/' class='link'>DOLOR, SIT AMET</Link></li>
@@ -16,7 +16,7 @@ export default function FirstContents(props){
                     <li><Link to='/' class='link'>SINT ODIT TENETUR</Link></li>
                 </ul>
             </div>
-        // </div>
+        </div>
         
     )
 }

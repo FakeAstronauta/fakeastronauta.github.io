@@ -59,8 +59,6 @@
 .nav-bar > .global-container > .nav-menu > .nav-item{
     list-style: none;
     margin: 0;
-   
-
 }
 
 .nav-bar > .global-container > .nav-menu > .nav-item > .nav-links{
@@ -70,7 +68,7 @@
     letter-spacing: .5px;
     padding: 0 0 7px 0;
     background:
-        linear-gradient(90deg, rgb(202, 202, 202), rgb(219, 219, 219)) left bottom/0% 1px no-repeat;
+    linear-gradient(90deg, rgb(202, 202, 202), rgb(219, 219, 219)) left bottom/0% 1px no-repeat;
 }
     
 

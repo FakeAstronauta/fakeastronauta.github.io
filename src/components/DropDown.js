@@ -16,24 +16,39 @@ export default function DropDown(props){
     
     useEffect(() => {
             
+            var underlineEffect = document.querySelectorAll(".dropdown-contents");
+
+            const tr = () => {
+                underlineEffect[lastProps].style.display = 'none';
+            }
+
             /**permite ocultar y mostrar los elementos del menu a medida se cambia de opcion
              * la primera condicion ayuda a evitar problemas al primer render cuando el valor pasado es null
              * y la segunda evita que el primer valor se borre a si mismo cuando el puntero vuelva a estar sobre el
              */
             if(props.contentNumber != null){
-                var underlineEffect = document.querySelectorAll(".dropdown-contents");
-                underlineEffect[props.contentNumber].style.display = 'flex';
-                underlineEffect[props.contentNumber].classList.add('opaque');
+                underlineEffect[props.contentNumber].classList.remove('hide');
+                // if(underlineEffect[props.contentNumber].style.opacity != 0){
+                    underlineEffect[props.contentNumber].style.display = 'flex';
+                // }
+                // underlineEffect[props.contentNumber].classList.add('opaque');
                 
                 if(lastProps != null && lastProps != props.contentNumber){  // avoids that the 0 element deletes itself
+                    underlineEffect[lastProps].addEventListener("transitionend", tr)
+                    // underlineEffect[lastProps].classList.remove('opaque');
                     underlineEffect[lastProps].classList.add('hide');
-                    underlineEffect[lastProps].classList.remove('opaque');
                     
                 }
             }
                 
             setLastProps(props.contentNumber)
-               
+            
+            if(lastProps != null && lastProps != props.contentNumber){
+                return () => {
+                    underlineEffect[lastProps].removeEventListener("transitionend", tr)
+                }
+            }
+
     /** como es esto posible? parece que si dejo el objeto reacciona a todos
      *  los renders del elemento donde lo envian, como si en react todo esta
      *  conectado*/
