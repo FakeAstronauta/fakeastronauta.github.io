@@ -7,6 +7,8 @@
     transition: opacity .3s; 
     display: none;
     position: absolute;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 @keyframes append-animate {
@@ -34,8 +36,7 @@ li{
 }
 
 
-
-.dropdown-contents > div > ul > li > .link{
+.link{
     color: #000000;
     text-decoration: none;
     font-size: 13px;
@@ -52,12 +53,20 @@ li{
     letter-spacing: .5px;
 }
 
+.outside-title{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    margin-bottom: 20px;
+}
+
 .small-container{
     width: 100vw;
     /*max-width: 1250px; */
     max-width: 520px;
     display: flex;
-    align-items: flex-start;
+    justify-content: flex-start;
     flex-direction: column;
 }
 
@@ -78,18 +87,21 @@ li{
 
 .paragraph{
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .gray-color{
-    color:#494949
+    color:#7c7c7c
 }
 
 .underline-links{
     text-decoration: none;
-    color:#494949;
+    color:#7c7c7c;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .5px;
     background:
-    linear-gradient(90deg, rgb(190, 190, 190), rgb(190, 190, 190)) left bottom/100% 1px no-repeat;
+    linear-gradient(90deg, rgb(233, 233, 233), rgb(233, 233, 233)) left bottom/100% 1px no-repeat;
     padding: 0 0 7px 0;
     transition: .5s;
     margin-top: 30px
@@ -97,11 +109,11 @@ li{
 
 .underline-links:hover{
     background:
-    linear-gradient(90deg, rgb(190, 190, 190), rgb(190, 190, 190)) left bottom/0% 1px no-repeat;
+    linear-gradient(90deg, rgb(233, 233, 233), rgb(233, 233, 233)) left bottom/0% 1px no-repeat;
 }
 
 .drop-dow-images{
-    object-fit: 'none';
+    object-fit: none;
     margin-right: 15px;
 }
 

@@ -4,6 +4,8 @@ import  FirstContents from './drop-down-contents/FirstContents'
 import  SecondContents from './drop-down-contents/SecondContents'
 import  ThirdContents from './drop-down-contents/ThirdContents'
 import  FourthContents from './drop-down-contents/FourthContents'
+import  FifthContents from './drop-down-contents/FifthContents'
+import  SixthContents from './drop-down-contents/SixthContents'
 import {Link} from 'react-router-dom';
 
 import {useState, useEffect} from 'react';
@@ -28,14 +30,10 @@ export default function DropDown(props){
              */
             if(props.contentNumber != null){
                 underlineEffect[props.contentNumber].classList.remove('hide');
-                // if(underlineEffect[props.contentNumber].style.opacity != 0){
                     underlineEffect[props.contentNumber].style.display = 'flex';
-                // }
-                // underlineEffect[props.contentNumber].classList.add('opaque');
                 
                 if(lastProps != null && lastProps != props.contentNumber){  // avoids that the 0 element deletes itself
                     underlineEffect[lastProps].addEventListener("transitionend", tr)
-                    // underlineEffect[lastProps].classList.remove('opaque');
                     underlineEffect[lastProps].classList.add('hide');
                     
                 }
@@ -61,6 +59,8 @@ export default function DropDown(props){
                 <SecondContents/>
                 <ThirdContents/>
                 <FourthContents/>
+                <FifthContents/>
+                <SixthContents/>
             </div>
         </div>
         );

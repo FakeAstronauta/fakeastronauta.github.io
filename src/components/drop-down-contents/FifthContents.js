@@ -3,11 +3,10 @@ import {Link} from 'react-router-dom';
 import './ContentsStyles.css'
 
 
-export default function SecondContents(props){
+export default function FifthContents(props){
     return(
             <div className='dropdown-contents'>
                 <div className='big-container inter'>
-                    <img className='drop-dow-images' src='https://via.placeholder.com/179x229'/> 
                     <ul>
                         <li className='title'>ALIQUAM</li>
                         <li><Link to='/' class='link'>ELIT</Link></li>
@@ -18,19 +17,21 @@ export default function SecondContents(props){
                     </ul>
                     <ul>
                         <li style={{marginTop:'35px'}}><Link to='/' class='link'>CONSECTETUR</Link></li>
+                        <li><Link to='/' class='link'>CONSECTETUR</Link></li>
+                        <li><Link to='/' class='link'>SINT ODIT</Link> </li>
+                        <li><Link to='/' class='link'>MAGNAM FACILIS MOLLITIA</Link></li>
+                        
                     </ul>
                 </div>
                 <div className='small-container inter'>
-                    <span className='outside-title'>SINT ODIT</span>
                     <div className='inner'>
-                        <div>
-                            <img src='https://via.placeholder.com/179x229' className='drop-dow-images'/> 
-                        </div>
                         <ul>
-                            <li className='title'>ALIQUAM</li>
-                            <li><a className='paragraph gray-color'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae possimus ea quaerat.</a></li>
-                            <li><Link to='/' class='link underline-links'>CONSECTETUR</Link></li>
-                            <li style={{paddingTop: '10px'}}><Link to='/' class='link underline-links'  >SINT ODIT</Link></li>
+                            <li className='title'>SINT ODIT</li>
+                            <li><Link to='/' class='link'>DOLOR, SIT</Link></li>
+                            <li><Link to='/' class='link'>CONSECTETUR</Link></li>
+                            <li><Link to='/' class='link'>MAGNAM FACILIS MOLLITIA</Link></li>
+                            <li><Link to='/' class='link'>DOLORES FUGIT QUOD </Link></li>
+                            <li><Link to='/' class='link'>SINT ODIT</Link></li>
                         </ul>
                     </div>
                 </div>

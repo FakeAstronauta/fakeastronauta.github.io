@@ -30,3 +30,6 @@
 30/11/2021
     el evento transitionend cargaba demasiadas veces, esto era por el addeventlistener que no era eliminado al
     final de cada render y se solo agregaba uno mas
+
+03/11/2021
+    [PENDIENTE] aun hay un bug entre transiciones de las opciones del menu
