@@ -6,12 +6,12 @@ import './ContentsStyles.css'
 export default function SecondContents(props){
     return(
             <div className='dropdown-contents'>
-                <div className='big-container inter' style={{background: 'yellow'}}>
-                    <img src='Untitled.png' src='https://via.placeholder.com/199x249' style={{objectFit: 'none'}}/> 
+                <div className='big-container inter'>
+                    <img className='drop-dow-images' src='https://via.placeholder.com/179x229'/> 
                     <ul>
                         <li className='title'>ALIQUAM</li>
                         <li><Link to='/' class='link'>ELIT</Link></li>
-                        <li><Link to='/' class='link'></Link>SINT </li>
+                        <li><Link to='/' class='link'>SINT</Link> </li>
                         <li><Link to='/' class='link'>DOLOR, SIT</Link></li>
                         <li><Link to='/' class='link'>CONSECTETUR</Link></li>
                         <li><Link to='/' class='link'>SINT ODIT</Link></li>
@@ -20,14 +20,19 @@ export default function SecondContents(props){
                         <li style={{marginTop:'35px'}}><Link to='/' class='link'>CONSECTETUR</Link></li>
                     </ul>
                 </div>
-                <div className='small-container inter' style={{background: 'pink'}}>
-                    <img src='https://via.placeholder.com/199x249' style={{objectFit: 'none'}} /> 
-                    <ul>
-                        <li className='title'>ALIQUAM</li>
-                        <li><a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae possimus ea quaerat.</a></li>
-                        <li><Link to='/' class='link'>CONSECTETUR</Link></li>
-                        <li><Link to='/' class='link'>SINT ODIT</Link></li>
-                    </ul>
+                <div className='small-container inter'>
+                    <span className='title'>SINT ODIT</span>
+                    <div className='inner'>
+                        <div>
+                            <img src='https://via.placeholder.com/179x229' className='drop-dow-images'/> 
+                        </div>
+                        <ul>
+                            <li className='title'>ALIQUAM</li>
+                            <li><a className='paragraph gray-color'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae possimus ea quaerat.</a></li>
+                            <li><Link to='/' class='link underline-links'>CONSECTETUR</Link></li>
+                            <li style={{paddingTop: '10px'}}><Link to='/' class='link underline-links'  >SINT ODIT</Link></li>
+                        </ul>
+                    </div>
                 </div>
                 
             </div>

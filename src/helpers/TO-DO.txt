@@ -1,0 +1,2 @@
+- consum apis correctly with react
+- Limit requests to pexels

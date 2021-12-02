@@ -6,7 +6,7 @@ import './ContentsStyles.css'
 export default function FirstContents(props){
     return(
         <div className='dropdown-contents'>
-            <div className='small-container inter' style={{background: 'skyblue'}}>
+            <div className='small-container inter'>
                 <ul>
                     <li className='title'>LOREM IPSUM</li>
                     <li><Link to='/' class='link'>DOLOR, SIT AMET</Link></li>
