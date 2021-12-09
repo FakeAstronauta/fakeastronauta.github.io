@@ -6,7 +6,7 @@ import {useState, useEffect} from 'react';
 export default function CarouselZoom(){
 
     const galleryControls = ['previous', 'add', 'next'];
-    const inner = document.querySelectorAll('.inner');
+    const inner = document.querySelectorAll('.inner-gallery');
     const galleryItems = document.querySelectorAll('.gallery-item');
     const carouselArray = [...galleryItems];
     const prev = document.querySelector('.gallery-controls-previous');
@@ -20,6 +20,7 @@ export default function CarouselZoom(){
 
     useEffect(() =>{
         if(state){
+            console.log('fish')
 
             const moveToPrevious = () => {
                 lastinner = inner[3];
@@ -44,60 +45,61 @@ export default function CarouselZoom(){
             prev.addEventListener('click', moveToPrevious);
 
             next.addEventListener('click', moveToNext);
-        }
 
-        function updateGallery() {
-            carouselArray.forEach(el => {
-                el.classList.remove('gallery-item-1');
-                el.classList.remove('gallery-item-2');
-                el.classList.remove('gallery-item-3');
-                el.classList.remove('gallery-item-4');
-                el.classList.remove('gallery-item-5');
-                el.classList.remove('gallery-item-6');
-                el.classList.remove('gallery-item-7');
-            });
-            
-            // here every elemento rotates and gets the style of the earliest who was in the same place
-            carouselArray.slice(0, 7).forEach((el, i) => {
-            el.classList.add(`gallery-item-${i+1}`);
-            });
-
-            // carouselArray[4].style.transition = '1s';
-            // carouselArray[0].style.transition = '1s';
-        }
-
-        // Update the current order of the carouselArray and gallery, here are passed the buttons
-        function setCurrentState(direction) {
-
-            if (direction.className == 'gallery-controls-previous') {
-                carouselArray.unshift(carouselArray.pop()); // the last element is added at the beginning
-            } else {
-                carouselArray.push(carouselArray.shift()); // the first element is added at the end
+            function updateGallery() {
+                carouselArray.forEach(el => {
+                    el.classList.remove('gallery-item-1');
+                    el.classList.remove('gallery-item-2');
+                    el.classList.remove('gallery-item-3');
+                    el.classList.remove('gallery-item-4');
+                    el.classList.remove('gallery-item-5');
+                    el.classList.remove('gallery-item-6');
+                    el.classList.remove('gallery-item-7');
+                });
+                
+                // here every elemento rotates and gets the style of the earliest who was in the same place
+                carouselArray.slice(0, 7).forEach((el, i) => {
+                el.classList.add(`gallery-item-${i+1}`);
+                });
             }
 
-            updateGallery();
-        }
+                // carouselArray[4].style.transition = '1s';
+                // carouselArray[0].style.transition = '1s';
 
+            // Update the current order of the carouselArray and gallery, here are passed the buttons
+            function setCurrentState(direction) {
+
+                if (direction.className == 'gallery-controls-previous') {
+                    carouselArray.unshift(carouselArray.pop()); // the last element is added at the beginning
+                } else {
+                    carouselArray.push(carouselArray.shift()); // the first element is added at the end
+                }
+
+                updateGallery();
+            }
+
+            
+            return () => {
+                prev.removeEventListener('click', moveToPrevious);
+                next.removeEventListener('click', moveToNext);
+            }
+        }
+        
         setState(true)
 
-        return () => {
-            prev.removeEventListener('click', moveToPrevious);
-            next.removeEventListener('click', moveToNext);
-        }
-
-    }, [])
+    }, [state])
 
     return(
     <>
     <div className="gallery">
         <div className="gallery-container">
-            <div className="gallery-item gallery-item-1"><img className='inner' src='https://via.placeholder.com/200x300'></img></div>
-            <div className="gallery-item gallery-item-2"><img className='inner' src='https://via.placeholder.com/200x300'></img></div>
-            <div className="gallery-item gallery-item-3"><img className='inner' src='https://via.placeholder.com/200x300'></img></div>
-            <div className="gallery-item gallery-item-4"><img className='inner' src='https://via.placeholder.com/200x300'></img></div>
-            <div className="gallery-item gallery-item-5"><img className='inner' src='https://via.placeholder.com/200x300'></img></div>
-            <div className="gallery-item gallery-item-6"><img className='inner' src='https://via.placeholder.com/200x300'></img></div>
-            <div className="gallery-item gallery-item-7"><img className='inner' src='https://via.placeholder.com/200x300'></img></div>
+            <div className="gallery-item gallery-item-1"><img className='inner-gallery' src='https://via.placeholder.com/200x300'></img></div>
+            <div className="gallery-item gallery-item-2"><img className='inner-gallery' src='https://via.placeholder.com/200x300'></img></div>
+            <div className="gallery-item gallery-item-3"><img className='inner-gallery' src='https://via.placeholder.com/200x300'></img></div>
+            <div className="gallery-item gallery-item-4"><img className='inner-gallery' src='https://via.placeholder.com/200x300'></img></div>
+            <div className="gallery-item gallery-item-5"><img className='inner-gallery' src='https://via.placeholder.com/200x300'></img></div>
+            <div className="gallery-item gallery-item-6"><img className='inner-gallery' src='https://via.placeholder.com/200x300'></img></div>
+            <div className="gallery-item gallery-item-7"><img className='inner-gallery' src='https://via.placeholder.com/200x300'></img></div>
         </div>
         <div className="gallery-controls">
             <button type="button" className="gallery-controls-previous">prev</button>

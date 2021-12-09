@@ -23,6 +23,8 @@ export default function DropDown(props){
 
             const tr = () => {
                 underlineEffect[lastProps].style.display = 'none';
+                console.log('end');
+
             }
 
             /**permite ocultar y mostrar los elementos del menu a medida se cambia de opcion
@@ -30,6 +32,7 @@ export default function DropDown(props){
              * y la segunda evita que el primer valor se borre a si mismo cuando el puntero vuelva a estar sobre el
              */
             if(props.contentNumber != null){
+
                 underlineEffect[props.contentNumber].classList.remove('hide');
                     underlineEffect[props.contentNumber].style.display = 'flex';
                 

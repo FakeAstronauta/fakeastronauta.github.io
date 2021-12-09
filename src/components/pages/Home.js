@@ -15,8 +15,7 @@ import 'swiper/swiper.min.css'
 export default function DropDown(){
     return(
     <>
-        <Button onClick={() => {console.log('true')}}>Show Toast</Button>
-        <Carousel interval={3000}>
+        <Carousel id='header-carousel' interval={3000}>
             <Carousel.Item>
                 <img
                 className="d-block w-100"
@@ -56,7 +55,7 @@ export default function DropDown(){
         </Carousel>
 
         <CarouselZoom></CarouselZoom>
-        
+
         <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img>
     </>
     )
