@@ -33,3 +33,6 @@
 
 03/11/2021
     [PENDIENTE] aun hay un bug entre transiciones de las opciones del menu
+
+09/12/2021
+    aprender a trabajar con event listener

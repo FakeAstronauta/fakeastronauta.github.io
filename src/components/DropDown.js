@@ -16,6 +16,7 @@ export default function DropDown(props){
     const [lastProps, setLastProps] = useState(null)
     const [state, setState] = useState(true)
     
+    /** Every number passed is used to display a different component */
     useEffect(() => {
             
             var underlineEffect = document.querySelectorAll(".dropdown-contents");

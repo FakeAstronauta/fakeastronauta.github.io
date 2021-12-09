@@ -126,7 +126,6 @@ export default function NavBar(){
             </div> 
         </nav>  
         <DropDown contentNumber={contentNumber} />
-        <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img>
         </> 
         );
 }
