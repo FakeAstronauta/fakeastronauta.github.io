@@ -20,6 +20,8 @@ export default function NavBar(){
     const [ready, setReady] = useState(false);  // used to avoid first render
     const r = () => setReady(true); // invoked under transition end block
     
+    var par = document.querySelector("#drop-down-menu");
+
 //     const [background, setBackground] = useState(null);
 
 //     useEffect(async ()=>{
@@ -46,7 +48,7 @@ export default function NavBar(){
 
             // used to avoid the first render and launch an event after transition
             if(ready == true){
-                if(par.style.opacity == 0 && par.style.display == 'none'){
+                if(par.style.opacity == 0){
                     par.addEventListener("transitionend", tr)
                 }
             }
@@ -80,7 +82,7 @@ export default function NavBar(){
             l.style.color= over ? 'black' : 'white';
         }
         
-        var par = document.querySelector("#drop-down-menu");
+        
         //This is the optional cleanup mechanism for effects. Every effect may return a function that cleans up after it
         return () => {
             par.removeEventListener("transitionend", tr)
@@ -125,7 +127,7 @@ export default function NavBar(){
                 </ul> 
             </div> 
         </nav>  
-        <DropDown contentNumber={contentNumber} />
+        <DropDown contentNumber={contentNumber} over={over}/>
         </> 
         );
 }

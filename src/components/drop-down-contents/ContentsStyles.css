@@ -4,7 +4,7 @@
     width: 90vw;
     max-width: 1250px;
     animation: append-animate 0.3s linear;
-    transition: opacity .3s; 
+    transition: opacity .4s; 
     display: none;
     position: absolute;
     justify-content: space-between;
@@ -103,7 +103,7 @@ li{
     background:
     linear-gradient(90deg, rgb(233, 233, 233), rgb(233, 233, 233)) left bottom/100% 1px no-repeat;
     padding: 0 0 7px 0;
-    transition: .5s;
+    transition: .4s;
     margin-top: 30px
 }
 

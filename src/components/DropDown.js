@@ -11,6 +11,7 @@ import {Link} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 
 export default function DropDown(props){
+
     // let names = [<FirstContents/>, <SecondContents/>, <ThirdContents/>, <FourthContents/>]
 
     const [lastProps, setLastProps] = useState(null)
@@ -20,29 +21,47 @@ export default function DropDown(props){
     useEffect(() => {
             
             var underlineEffect = document.querySelectorAll(".dropdown-contents");
+            var dropDownContainer = document.querySelector('#drop-down-container')
+
+            if(props.over){
+                dropDownContainer.style.display = 'flex';
+            }else{
+                dropDownContainer.style.display = 'none';
+
+            }
 
             const tr = () => {
                 underlineEffect[lastProps].style.display = 'none';
-                console.log('end');
+                console.log('fish');
 
             }
+
 
             /**permite ocultar y mostrar los elementos del menu a medida se cambia de opcion
              * la primera condicion ayuda a evitar problemas al primer render cuando el valor pasado es null
              * y la segunda evita que el primer valor se borre a si mismo cuando el puntero vuelva a estar sobre el
              */
             if(props.contentNumber != null){
-
+                // esta linea remueve las clase que esta por defecto
+                
                 underlineEffect[props.contentNumber].classList.remove('hide');
-                    underlineEffect[props.contentNumber].style.display = 'flex';
+                underlineEffect[props.contentNumber].style.display = 'flex';
                 
                 if(lastProps != null && lastProps != props.contentNumber){  // avoids that the 0 element deletes itself
+                    if(props.over != false){
+                        underlineEffect[lastProps].style.display = 'none';
+                    }
+
                     underlineEffect[lastProps].addEventListener("transitionend", tr)
                     underlineEffect[lastProps].classList.add('hide');
                     
                 }
             }
                 
+            
+            //   EL PROBLEMA ES QUE DESAPARECE EL MENU, PERO NO EL CONTENIDO
+
+
             setLastProps(props.contentNumber)
             
             if(lastProps != null && lastProps != props.contentNumber){
