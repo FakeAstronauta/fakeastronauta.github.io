@@ -11,7 +11,6 @@ import {Link} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 
 export default function DropDown(props){
-
     // let names = [<FirstContents/>, <SecondContents/>, <ThirdContents/>, <FourthContents/>]
 
     const [lastProps, setLastProps] = useState(null)
@@ -32,7 +31,6 @@ export default function DropDown(props){
 
             const tr = () => {
                 underlineEffect[lastProps].style.display = 'none';
-                console.log('fish');
 
             }
 
@@ -48,12 +46,11 @@ export default function DropDown(props){
                 underlineEffect[props.contentNumber].style.display = 'flex';
                 
                 if(lastProps != null && lastProps != props.contentNumber){  // avoids that the 0 element deletes itself
-                    if(props.over != false){
-                        underlineEffect[lastProps].style.display = 'none';
-                    }
-
+                    
+                    // underlineEffect[lastProps].style.display = 'none';
                     underlineEffect[lastProps].addEventListener("transitionend", tr)
                     underlineEffect[lastProps].classList.add('hide');
+                    
                     
                 }
             }
@@ -73,7 +70,7 @@ export default function DropDown(props){
     /** como es esto posible? parece que si dejo el objeto reacciona a todos
      *  los renders del elemento donde lo envian, como si en react todo esta
      *  conectado*/
-    }, [props.contentNumber]) 
+    }, [props.contentNumber, props.endTransition]) 
     
     return(
         <div id='drop-down-menu'>

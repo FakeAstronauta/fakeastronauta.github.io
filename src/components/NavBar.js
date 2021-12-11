@@ -15,12 +15,12 @@ export default function NavBar(){
     
     // only to chech when the cursor passes from one element to another
     const [state, setState] = useState(true)
-
+    
     const [over, setOver] = useState(false); // display dropdown menu
     const [ready, setReady] = useState(false);  // used to avoid first render
     const r = () => setReady(true); // invoked under transition end block
     
-    var par = document.querySelector("#drop-down-menu");
+    var DropDownContents = document.querySelectorAll(".dropdown-contents");
 
 //     const [background, setBackground] = useState(null);
 
@@ -35,31 +35,47 @@ export default function NavBar(){
 
 /** esto se acciona cuando el elemento ya esta creado y remueve ciertos elementos de la pagina*/
     useEffect(() => {
-
         // function called when transition ends
         const tr = () => {
-            par.style.display = 'none';
+            var par = document.querySelector("#drop-down-menu");
+            
+            if(par.classList[0] == 'none'){
+                // par.style.display = 'none';
+
+            }
+
+            //when dropdowns transition ends the elements disapear
+             // DropDownContents[lastcontentNumber].style.display = 'none'   
         }
 
         if(over == false){
             // this deletes the dropdown menu
             var par = document.querySelector("#drop-down-menu");
+            
+            par.classList.remove("show-dropdown"); // the opacity is set to 0
             par.classList.add("none");
+            // par.style.display = 'none';
 
-            // used to avoid the first render and launch an event after transition
+            /** the first condition: used to avoid the first render and launch an event after transition
+             *  the second condition: to avoid that the transitions starts before the earlier ends
+             * */
             if(ready == true){
-                if(par.style.opacity == 0){
-                    par.addEventListener("transitionend", tr)
-                }
+                par.addEventListener("transitionend", tr)
             }
 
             r()
 
+            // EL PROBLEMA ES QUE LA TRANSICION NO TERMINA Y CHOCA CON LA OTRA AL CAMBIAR LAS CLASES,
+            
+
         }else if(over == true){
             // this shows the dropdown menu
             var par = document.querySelector("#drop-down-menu"); 
-            par.style.display = 'flex';
+            // par.style.display = 'flex';
             par.classList.remove("none");
+            par.classList.add("show-dropdown");
+
+
         }
         
         // used to hide the underline style of the last element when the cursor is over another or out the menu

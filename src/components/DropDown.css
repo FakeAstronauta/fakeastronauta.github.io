@@ -5,9 +5,9 @@
     position: fixed;
     transition: opacity .3s;
     z-index: 1;
-    display: none;
+    display: flex;
     justify-content: center;
-    animation: append-animate 0.5s linear;
+    /* animation: append-animate 0.5s linear;   LEARN WARNING DOWN*/
 }
 
 #drop-down-menu > #drop-down-container{
@@ -27,12 +27,14 @@
     opacity: 1;
 }
 
-@keyframes append-animate {
+/* WARNING:     DO NOT MIX KEYFRAME ANIMATIONS WITH TRANSITIONS */
+
+/* @keyframes append-animate {
     from {
         opacity: 0;
     }
     to {
         opacity: 1;	
     }
-}
+} */
 
