@@ -29,7 +29,8 @@
 
 /* WARNING:     DO NOT MIX KEYFRAME ANIMATIONS WITH TRANSITIONS */
 
-/* @keyframes append-animate {
+
+/* @keyframes fade-in {
     from {
         opacity: 0;
     }
@@ -38,3 +39,11 @@
     }
 } */
 
+/* @keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;	
+    }
+} */

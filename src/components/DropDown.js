@@ -20,20 +20,11 @@ export default function DropDown(props){
     useEffect(() => {
             
             var underlineEffect = document.querySelectorAll(".dropdown-contents");
-            var dropDownContainer = document.querySelector('#drop-down-container')
-
-            if(props.over){
-                dropDownContainer.style.display = 'flex';
-            }else{
-                dropDownContainer.style.display = 'none';
-
-            }
 
             const tr = () => {
                 underlineEffect[lastProps].style.display = 'none';
 
             }
-
 
             /**permite ocultar y mostrar los elementos del menu a medida se cambia de opcion
              * la primera condicion ayuda a evitar problemas al primer render cuando el valor pasado es null
@@ -42,23 +33,21 @@ export default function DropDown(props){
             if(props.contentNumber != null){
                 // esta linea remueve las clase que esta por defecto
                 
-                underlineEffect[props.contentNumber].classList.remove('hide');
                 underlineEffect[props.contentNumber].style.display = 'flex';
-                
+                setTimeout(() =>{
+                    underlineEffect[props.contentNumber].classList.add('opaque');
+                }, 10)
+
                 if(lastProps != null && lastProps != props.contentNumber){  // avoids that the 0 element deletes itself
+                    // remove the last elements tath where shown
                     
-                    // underlineEffect[lastProps].style.display = 'none';
+                    underlineEffect[lastProps].classList.remove('opaque');
                     underlineEffect[lastProps].addEventListener("transitionend", tr)
-                    underlineEffect[lastProps].classList.add('hide');
-                    
+                    // underlineEffect[lastProps].style.display = 'none';
                     
                 }
             }
-                
-            
-            //   EL PROBLEMA ES QUE DESAPARECE EL MENU, PERO NO EL CONTENIDO
-
-
+             
             setLastProps(props.contentNumber)
             
             if(lastProps != null && lastProps != props.contentNumber){
@@ -70,7 +59,7 @@ export default function DropDown(props){
     /** como es esto posible? parece que si dejo el objeto reacciona a todos
      *  los renders del elemento donde lo envian, como si en react todo esta
      *  conectado*/
-    }, [props.contentNumber, props.endTransition]) 
+    }, [props.contentNumber, props.over]) 
     
     return(
         <div id='drop-down-menu'>

@@ -38,14 +38,10 @@ export default function NavBar(){
         // function called when transition ends
         const tr = () => {
             var par = document.querySelector("#drop-down-menu");
-            
-            if(par.classList[0] == 'none'){
-                // par.style.display = 'none';
+            par.style.display = 'none';
 
-            }
-
-            //when dropdowns transition ends the elements disapear
-             // DropDownContents[lastcontentNumber].style.display = 'none'   
+            //when dropdowns transition ends the elements disapear, this is useful when the pointer is out
+            // DropDownContents[lastcontentNumber].style.display = 'none'
         }
 
         if(over == false){
@@ -54,7 +50,6 @@ export default function NavBar(){
             
             par.classList.remove("show-dropdown"); // the opacity is set to 0
             par.classList.add("none");
-            // par.style.display = 'none';
 
             /** the first condition: used to avoid the first render and launch an event after transition
              *  the second condition: to avoid that the transitions starts before the earlier ends
@@ -64,16 +59,21 @@ export default function NavBar(){
             }
 
             r()
-
-            // EL PROBLEMA ES QUE LA TRANSICION NO TERMINA Y CHOCA CON LA OTRA AL CAMBIAR LAS CLASES,
-            
+                //  Y no se porque los elementos se acumulan cuando uso el display
 
         }else if(over == true){
             // this shows the dropdown menu
-            var par = document.querySelector("#drop-down-menu"); 
-            // par.style.display = 'flex';
-            par.classList.remove("none");
-            par.classList.add("show-dropdown");
+            var par = document.querySelector("#drop-down-menu");    
+            par.style.display = 'flex';
+            
+            /**
+             * This setTimeout is used to avoid bugs when the fade-in starts caused by the display = flex
+             * (the soft effects is avoided and the menu appears)
+             */
+            setTimeout(() =>{
+                par.classList.add("show-dropdown");
+                par.classList.remove("none");
+            }, 10)
 
 
         }
