@@ -22,11 +22,14 @@
     }
 }
 
+/* .nav-bar > .global-container {
+} */
+
 .nav-bar > .global-container > .first-container{
     justify-content: space-between;
     display: flex;
     align-items: center;
-    width: 100vw;
+    width: 90vw;
     max-width: 1250px;
     height: 80px;
 }

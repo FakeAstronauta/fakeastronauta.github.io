@@ -40,11 +40,10 @@ export default function NavBar(){
             var par = document.querySelector("#drop-down-menu");
             par.style.display = 'none';
 
-            //when dropdowns transition ends the elements disapear, this is useful when the pointer is out
-            // DropDownContents[lastcontentNumber].style.display = 'none'
         }
 
         if(over == false){
+            
             // this deletes the dropdown menu
             var par = document.querySelector("#drop-down-menu");
             
@@ -56,6 +55,13 @@ export default function NavBar(){
              * */
             if(ready == true){
                 par.addEventListener("transitionend", tr)
+    
+                //when dropdowns transition ends the elements disapear, this is useful when the pointer is out
+                // THIS CAND BE IMPROVED TO CREATES A BETTER TRANSITION
+                // setTimeout(() =>{
+                DropDownContents[lastcontentNumber].style.display = 'none'
+                // }, 10)
+
             }
 
             r()

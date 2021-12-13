@@ -1,2 +1,3 @@
 - consum apis correctly with react
 - Limit requests to pexels
+- compress images to improve performance

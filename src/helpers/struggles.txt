@@ -36,3 +36,13 @@
 
 09/12/2021
     aprender a trabajar con event listener
+
+12/12/21
+    [PENDIENTE]
+    necesito aprender sobre algoritmos para lograr el efecto del menu, donde cada elemento
+    se desvanece cuando el mouse esta sobre el siguiente; aun lo hago modificando 
+    el estilo del ultimo elemento pasado, pero cuando el cursor pasa muy rapido no 
+    se puede modificar los parametros debido a que esto ocurre al finalizar la transicion,
+    esto debido a que si cambio el estilo antes de la transicion esta no se completa.
+    Debo aprender sobre estructuras de datos y algoritmos para lograr crear un array
+    con todos los elementos sobre los que paso el cursor y luego cambiar su display

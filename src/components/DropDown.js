@@ -21,11 +21,6 @@ export default function DropDown(props){
             
             var underlineEffect = document.querySelectorAll(".dropdown-contents");
 
-            const tr = () => {
-                underlineEffect[lastProps].style.display = 'none';
-
-            }
-
             /**permite ocultar y mostrar los elementos del menu a medida se cambia de opcion
              * la primera condicion ayuda a evitar problemas al primer render cuando el valor pasado es null
              * y la segunda evita que el primer valor se borre a si mismo cuando el puntero vuelva a estar sobre el
@@ -40,22 +35,17 @@ export default function DropDown(props){
 
                 if(lastProps != null && lastProps != props.contentNumber){  // avoids that the 0 element deletes itself
                     // remove the last elements tath where shown
-                    
                     underlineEffect[lastProps].classList.remove('opaque');
-                    underlineEffect[lastProps].addEventListener("transitionend", tr)
-                    // underlineEffect[lastProps].style.display = 'none';
+
+                    // setTimeout(() =>{
+                    underlineEffect[lastProps].style.display = 'none';
+                    // }, 500)
                     
                 }
             }
              
             setLastProps(props.contentNumber)
             
-            if(lastProps != null && lastProps != props.contentNumber){
-                return () => {
-                    underlineEffect[lastProps].removeEventListener("transitionend", tr)
-                }
-            }
-
     /** como es esto posible? parece que si dejo el objeto reacciona a todos
      *  los renders del elemento donde lo envian, como si en react todo esta
      *  conectado*/

@@ -1,8 +1,8 @@
 import React from 'react';
-import {Button} from 'react-bootstrap';
 import {Carousel} from 'react-bootstrap';
 import  './Home.css'
 import CarouselZoom from './pages-components/CarouselZoom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
@@ -15,45 +15,46 @@ import 'swiper/swiper.min.css'
 export default function DropDown(){
     return(
     <>
-        <Carousel id='header-carousel' interval={3000}>
-            <Carousel.Item>
-                <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/2079x1029"
-                alt="First slide"
-                />
-                <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/2079x1029"
+        <div className='carousel-container'>
+            <Carousel  interval={3000}>
+                <Carousel.Item className='header-carousel'>
+                    <img
+                    className="d-block w-100"
+                    src="https://via.placeholder.com/2079x1029"
+                    alt="First slide"
+                    />
+                    <Carousel.Caption>
+                    <h3>First slide label</h3>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item className='header-carousel'>
+                    <img
+                    className="d-block w-100"
+                    src="https://via.placeholder.com/2079x1029"
 
-                alt="Second slide"
-                />
+                    alt="Second slide"
+                    />
 
-                <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/2079x1029"
-                alt="Third slide"
-                />
+                    <Carousel.Caption>
+                    <h3>Second slide label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item className='header-carousel'>
+                    <img
+                    className="d-block w-100"
+                    src="https://via.placeholder.com/2079x1029"
+                    alt="Third slide"
+                    />
 
-                <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-        </Carousel>
-
+                    <Carousel.Caption>
+                    <h3>Third slide label</h3>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+            </Carousel>
+        </div>
         <CarouselZoom></CarouselZoom>
 
         <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img>

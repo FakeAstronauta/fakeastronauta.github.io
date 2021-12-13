@@ -4,14 +4,12 @@ body{
 
 .gallery {
     width: 100%;
-    background-color: violet;
 }
 
 .gallery-container {
     display: flex;
     align-items: center;
     position: relative;
-    background-color: yellowgreen;
     margin: 0 auto;
     width: 100%;
     height: 40vw;
@@ -68,4 +66,22 @@ body{
 
 .gallery-item-7 {
     transform: translateX(100.6vw);
+}
+
+.gallery-control-prev, .gallery-control-next{
+    position: absolute;
+    z-index: 0;
+    top: 30vh;
+    cursor: pointer;
+    font-size: 15vh;
+    margin:0 ;
+    font-weight: 300;
+}
+
+.gallery-control-prev{
+    left: 0vw;
+}
+
+.gallery-control-next{
+    right: 0vw;
 }

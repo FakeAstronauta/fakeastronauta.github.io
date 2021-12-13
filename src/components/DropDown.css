@@ -11,7 +11,7 @@
 }
 
 #drop-down-menu > #drop-down-container{
-    width: 100%;
+    width: 90vw;
     height: 459px;
     max-width: 1250px;
     display: flex;

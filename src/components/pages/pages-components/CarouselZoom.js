@@ -9,12 +9,12 @@ export default function CarouselZoom(){
     const inner = document.querySelectorAll('.inner-gallery');
     const galleryItems = document.querySelectorAll('.gallery-item');
     const carouselArray = [...galleryItems];
-    const prev = document.querySelector('.gallery-controls-previous');
-    const next = document.querySelector('.gallery-controls-next');
+    const prev = document.querySelector('.gallery-control-prev');
+    const next = document.querySelector('.gallery-control-next');
 
     let lastprev = null;
     let lastnext = null;
-    let lastinner = null;
+    var lastinner = null;
 
     const [state, setState] = useState(false)
 
@@ -68,8 +68,7 @@ export default function CarouselZoom(){
 
             // Update the current order of the carouselArray and gallery, here are passed the buttons
             function setCurrentState(direction) {
-
-                if (direction.className == 'gallery-controls-previous') {
+                if (direction.classList[0] == 'gallery-control-prev') {
                     carouselArray.unshift(carouselArray.pop()); // the last element is added at the beginning
                 } else {
                     carouselArray.push(carouselArray.shift()); // the first element is added at the end
@@ -100,10 +99,9 @@ export default function CarouselZoom(){
             <div className="gallery-item gallery-item-5"><img className='inner-gallery' src='https://via.placeholder.com/200x300'></img></div>
             <div className="gallery-item gallery-item-6"><img className='inner-gallery' src='https://via.placeholder.com/200x300'></img></div>
             <div className="gallery-item gallery-item-7"><img className='inner-gallery' src='https://via.placeholder.com/200x300'></img></div>
-        </div>
-        <div className="gallery-controls">
-            <button type="button" className="gallery-controls-previous">prev</button>
-            <button type="button" className="gallery-controls-next">next</button>
+            
+            <span className="gallery-control-prev material-icons">navigate_before</span>
+            <span className="gallery-control-next material-icons">navigate_next</span>
         </div>
     </div>
     </>

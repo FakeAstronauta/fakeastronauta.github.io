@@ -28,7 +28,7 @@ export default function SecondContents(props){
                         </div>
                         <ul>
                             <li className='title'>ALIQUAM</li>
-                            <li><a className='paragraph gray-color'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae possimus ea quaerat.</a></li>
+                            <li><p className='paragraph gray-color'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae possimus ea quaerat.</p></li>
                             <li><Link to='/' class='link underline-links'>CONSECTETUR</Link></li>
                             <li style={{paddingTop: '10px'}}><Link to='/' class='link underline-links'  >SINT ODIT</Link></li>
                         </ul>

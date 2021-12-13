@@ -1,5 +1,19 @@
-#header-carousel{
+.carousel-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: yellow;
+    overflow: hidden;
+}
+
+.header-carousel{
     /* z-index: -1; */
     /* display: none; */
-    height: 100vh;
+    height: auto;
+    width: 100vw;
+    min-width: 2000px;
+    min-height: 100vh;
+    max-height: 100vh;
 }
