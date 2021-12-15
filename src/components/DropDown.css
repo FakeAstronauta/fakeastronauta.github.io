@@ -47,3 +47,29 @@
         opacity: 0;	
     }
 } */
+@media screen and (max-width: 1025px) {
+    /* deletes navigation/scroll of the body */
+    body{
+        overflow: hidden;
+    }
+
+    #drop-down-menu{
+        height: 100%;
+        /* right: -10%;*/
+        /* top: 20%; */
+        background-color: turquoise;
+        position: absolute;
+        overflow: auto;
+    }
+
+    #drop-down-menu > #drop-down-container{
+        width: 100vw;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        /* background-color: brown; */
+        background-color: rgb(94, 94, 231);
+        overflow: auto;
+
+    }
+}

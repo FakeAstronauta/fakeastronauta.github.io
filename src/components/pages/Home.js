@@ -15,7 +15,7 @@ import 'swiper/swiper.min.css'
 export default function DropDown(){
     return(
     <>
-        <div className='carousel-container'>
+        {/* <div className='carousel-container'>
             <Carousel  interval={3000}>
                 <Carousel.Item className='header-carousel'>
                     <img
@@ -55,9 +55,10 @@ export default function DropDown(){
                 </Carousel.Item>
             </Carousel>
         </div>
-        <CarouselZoom></CarouselZoom>
+        <CarouselZoom></CarouselZoom> */}
 
         <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img>
+        {/* <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, praesentium. Totam distinctio consectetur ducimus accusantium ut facere laudantium repellendus? Quod odit veritatis amet ut nobis, iure sit suscipit voluptatum.</a> */}
     </>
     )
 }

@@ -121,3 +121,14 @@ li{
 .inner{
     display: flex;
 }
+
+/* media queries */
+
+@media screen and (max-width: 1025px) {
+    .dropdown-contents{
+        flex-direction: column;
+        justify-content: flex-start;
+
+    }
+    
+}
