@@ -12,14 +12,28 @@ import {useState, useEffect} from 'react';
 
 export default function DropDown(props){
     // let names = [<FirstContents/>, <SecondContents/>, <ThirdContents/>, <FourthContents/>]
+    const titles = ['']
+    const [lastProps, setLastProps] = useState(null) // last pop value passed
+    //defines when the side menu is shown
+    const [showSideMenu, setShowSideMenu] = useState(false);
 
-    const [lastProps, setLastProps] = useState(null)
-    const [state, setState] = useState(true)
     
     /** Every number passed is used to display a different component */
     useEffect(() => {
-            
+           
+
+            const revealSideMenu = () => {
+                setShowSideMenu(true)
+            }   
+
+            var dropdownMenu = document.querySelector(".drop-down-menu");
+            console.log(dropdownMenu.classList)
+
+            var navItems = document.querySelectorAll(".nav-item");
+            navItems.forEach((a)=>{a.addEventListener('click', revealSideMenu)})
+
             var underlineEffect = document.querySelectorAll(".dropdown-contents");
+            console.log(underlineEffect)
 
             /**permite ocultar y mostrar los elementos del menu a medida se cambia de opcion
              * la primera condicion ayuda a evitar problemas al primer render cuando el valor pasado es null
@@ -45,15 +59,26 @@ export default function DropDown(props){
             }
              
             setLastProps(props.contentNumber)
-            
+
+            return () => {
+                navItems.forEach((a)=>{a.removeEventListener('click', revealSideMenu)})
+            }
     /** como es esto posible? parece que si dejo el objeto reacciona a todos
      *  los renders del elemento donde lo envian, como si en react todo esta
      *  conectado*/
-    }, [props.contentNumber, props.over]) 
-    
+    }, [props.contentNumber, props.over, showSideMenu]) 
     return(
-        <div id='drop-down-menu'>
+        <div className={showSideMenu ? 'drop-down-menu active-dropdown' : 'drop-down-menu'}>
             <div id="drop-down-container">
+                <div id="drop-down-header">
+                    <span class="material-icons" onClick={()=>{setShowSideMenu(false); console.log('click')}}>
+                        chevron_left
+                    </span>
+                    <span className='inter'>fish</span>
+                    <span class="material-icons">
+                        close
+                    </span>
+                </div>
                 <FirstContents/>
                 <SecondContents/>
                 <ThirdContents/>

@@ -2,15 +2,7 @@ import React from 'react';
 import {Carousel} from 'react-bootstrap';
 import  './Home.css'
 import CarouselZoom from './pages-components/CarouselZoom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
-
-// Import Swiper styles
-import 'swiper/swiper.min.css'
-
-
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function DropDown(){
     return(

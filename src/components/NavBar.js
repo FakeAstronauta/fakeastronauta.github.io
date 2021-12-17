@@ -21,6 +21,9 @@ export default function NavBar(){
     
     // used to detect when the menu is in side mode, when the menu icon is clicked
     const [ClickOnMenu, setClickOnMenu] = useState(false);
+    
+    //defines when the side menu is shown, its used only to swhitch between two values that are not used
+    const [showSideMenu, setShowSideMenu] = useState(false);
 
     var DropDownContents = document.querySelectorAll(".dropdown-contents");
 
@@ -39,7 +42,7 @@ export default function NavBar(){
     useEffect(() => {
         // function called when transition ends
         const tr = () => {
-            var par = document.querySelector("#drop-down-menu");
+            var par = document.querySelector(".drop-down-menu");
             par.style.display = 'none';
 
         }
@@ -47,7 +50,7 @@ export default function NavBar(){
         if(over == false){
             
             // this deletes the dropdown menu
-            var par = document.querySelector("#drop-down-menu");
+            var par = document.querySelector(".drop-down-menu");
             
             par.classList.remove("show-dropdown"); // the opacity is set to 0
             par.classList.add("none");
@@ -71,7 +74,7 @@ export default function NavBar(){
 
         }else if(over == true){
             // this shows the dropdown menu
-            var par = document.querySelector("#drop-down-menu");    
+            var par = document.querySelector(".drop-down-menu");    
             par.style.display = 'flex';
             
             /**
@@ -138,6 +141,8 @@ export default function NavBar(){
                         </Link>
                     </div>
                 </div>
+                {/* TO DO: optimizar todos las funciones llamadas en los mouseover, son demasiadas
+                    tambien parece necesario mover el addEvent y mejor usar las propiedades en los elementos */}
                 <ul className={ClickOnMenu ? 'nav-menu active' : 'nav-menu'}>
                     <li id='close-button-menu'><span className="material-icons" onClick={() => {setClickOnMenu(!ClickOnMenu)}} >close</span></li>
                     <li className="nav-item">
@@ -179,7 +184,7 @@ export default function NavBar(){
                 </ul> 
             </div> 
         </nav>  
-        <DropDown contentNumber={contentNumber} over={over}/>
+        <DropDown contentNumber={contentNumber} over={over} showSideMenu={showSideMenu}/>
         </> 
         );
 }
