@@ -16,7 +16,7 @@ export default function FifthContents(props){
                         <li><Link to='/' class='link'>SINT ODIT</Link></li>
                     </ul>
                     <ul>
-                        <li style={{marginTop:'35px'}}><Link to='/' class='link'>MOLLITIA</Link></li>
+                        <li className='top-margin'><Link to='/' class='link'>MOLLITIA</Link></li>
                         <li><Link to='/' class='link'>CONSECTETUR</Link></li>
                         <li><Link to='/' class='link'>SINT ODIT</Link> </li>
                         <li><Link to='/' class='link'>MAGNAM FACILIS MOLLITIA</Link></li>

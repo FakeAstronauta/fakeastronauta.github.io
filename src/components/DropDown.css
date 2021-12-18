@@ -1,6 +1,6 @@
 .drop-down-menu{
     width: 100%;
-    height: 459px;
+    /* height: 459px; */
     background-color: #ffffff;
     position: fixed;
     transition: opacity .3s;
@@ -59,11 +59,10 @@
 
     .drop-down-menu{
         width: 100vw;
-        height: 100vh;
+        height: fit-content;
         right: -100%;
         position: absolute;
         /* this helps to the container to sorround the content */
-        overflow: auto; 
         transition: right 0.5s ease
     }
 
@@ -73,21 +72,27 @@
 
     .drop-down-menu > #drop-down-container{
         width: 100vw;
-        height: 100%;
+        height: 100vh;
         flex-direction: column;
-        justify-content: center;
-        justify-content: flex-start;
         /* this helps to the container to sorround the content */
         overflow: auto; 
-
+        align-items: center;
     }
 
     .drop-down-menu > #drop-down-container > #drop-down-header{
         width: 100%;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        border-bottom: .5px solid rgb(231, 231, 231);
     }
+
+    .drop-down-menu > #drop-down-container > #drop-down-header > .material-icons{
+        margin: 10px;
+        font-size: 30px;
+    }
+
 
 
 }

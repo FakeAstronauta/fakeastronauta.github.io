@@ -14,7 +14,7 @@ export default function SixthContents(props){
                 <li><Link to='/' class='link'>CONSECTETUR</Link></li>
                 <li><Link to='/' class='link'>SINT ODIT</Link></li>
             </ul>
-            <img className='drop-dow-images' src='https://via.placeholder.com/410x280'/> 
+            <img className='drop-dow-images full-lenght-when-resize' src='https://via.placeholder.com/410x280'/> 
         </div>
     )
 }

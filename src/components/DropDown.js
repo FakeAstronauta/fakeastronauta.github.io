@@ -12,7 +12,8 @@ import {useState, useEffect} from 'react';
 
 export default function DropDown(props){
     // let names = [<FirstContents/>, <SecondContents/>, <ThirdContents/>, <FourthContents/>]
-    const titles = ['']
+    const titles = ["TODAY'S", "HOT OUTFITS", "OUR ACCESORIES", "FRAGANCES", "MAKEUP", "GIFTS"]
+
     const [lastProps, setLastProps] = useState(null) // last pop value passed
     //defines when the side menu is shown
     const [showSideMenu, setShowSideMenu] = useState(false);
@@ -74,7 +75,7 @@ export default function DropDown(props){
                     <span class="material-icons" onClick={()=>{setShowSideMenu(false); console.log('click')}}>
                         chevron_left
                     </span>
-                    <span className='inter'>fish</span>
+                    <span className='inter'>{titles[props.contentNumber]}</span>
                     <span class="material-icons">
                         close
                     </span>

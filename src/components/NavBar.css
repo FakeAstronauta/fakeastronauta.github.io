@@ -77,7 +77,7 @@
 }
 
 .nav-bar > .global-container > .nav-menu > #close-button-menu{
-    width: 100%;
+    width: 100% ;
     height: auto;
     display: none;
     justify-content: right;
@@ -187,9 +187,9 @@
 
 }
 
-@media screen and (max-width: 825px) {
+@media screen and (max-width: 1025px) {
     .nav-bar{
-        position: absolute;
+        position: absolute !important;
     }
    
 }

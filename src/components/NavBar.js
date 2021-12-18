@@ -109,10 +109,12 @@ export default function NavBar(){
             setLastcontentNumber(contentNumber)
         }
         
-        // turns menu's text to black when pointer is over
-        let a = document.getElementsByClassName('link-style-white');
-        for (let l of a){
-            l.style.color= over ? 'black' : 'white';
+        // turns menu's text to black when pointer is over, and the side menu is hidden
+        if(ClickOnMenu == false){
+            let a = document.getElementsByClassName('link-style-white');
+            for (let l of a){
+                l.style.color= over ? 'black' : 'white';
+            }
         }
         
         
