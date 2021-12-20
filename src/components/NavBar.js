@@ -73,9 +73,11 @@ export default function NavBar(){
                 //  Y no se porque los elementos se acumulan cuando uso el display
 
         }else if(over == true){
-            // this shows the dropdown menu
-            var par = document.querySelector(".drop-down-menu");    
-            par.style.display = 'flex';
+            // this shows the dropdown menu, only when the side menu is hide
+            var par = document.querySelector(".drop-down-menu"); 
+            if(ClickOnMenu == false){
+                par.style.display = 'flex';
+            }
             
             /**
              * This setTimeout is used to avoid bugs when the fade-in starts caused by the display = flex
@@ -186,7 +188,7 @@ export default function NavBar(){
                 </ul> 
             </div> 
         </nav>  
-        <DropDown contentNumber={contentNumber} over={over} showSideMenu={showSideMenu}/>
+        <DropDown contentNumber={contentNumber} over={over} ClickOnMenu={ClickOnMenu}/>
         </> 
         );
 }

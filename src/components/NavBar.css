@@ -124,11 +124,11 @@
 
 @media screen and (max-width: 1025px) {
     .nav-bar{
-        z-index: 1; 
+        z-index: 4; 
     }
     
     .nav-bar > .global-container{
-        height: 100vh;
+        /* height: auto; */
     } 
 
     .nav-bar > .global-container > .first-container > .menu-icon{
@@ -145,7 +145,7 @@
         flex-direction: column;
         background-color: white;
         width: 100%;
-        height: 100%;
+        height: 100vh;
         align-items: center;
         justify-content: flex-start;
         transition: left 0.5s ease

@@ -23,6 +23,9 @@
     display: none;
 }
 
+.drop-down-menu > #drop-down-container > #drop-down-header > .material-icons{
+    cursor: pointer;
+}
 .none{
     opacity: 0;
 }
@@ -53,9 +56,9 @@
 } */
 @media screen and (max-width: 1025px) {
     /* deletes navigation/scroll of the body */
-    body{
+    /* body{
         overflow: hidden;
-    }
+    } */
 
     .drop-down-menu{
         width: 100vw;
@@ -63,7 +66,8 @@
         right: -100%;
         position: absolute;
         /* this helps to the container to sorround the content */
-        transition: right 0.5s ease
+        transition: right 0.5s ease;
+        z-index: 4;
     }
 
     .active-dropdown{

@@ -23,7 +23,7 @@ export default function ThirdContents(props){
                         </div>
                         <ul>
                             <li className='title'>POSSIMUS EA QUAERAT</li>
-                            <li><p className='paragraph gray-color'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt illum veniam facilis laborum soluta exercitationem, doloremque rerum aut? Deserunt corporis iure ea. Iusto incidunt modi officiis voluptate? Veniam provident non eveniet culpa inventore facilis.</p></li>
+                            <li><p className='paragraph gray-color'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt illum veniam facilis laborum soluta exercitationem, doloremque rerum aut? Deserunt corporis iure ea.</p></li>
                             <li><Link to='/' class='link underline-links'>CONSECTETUR</Link></li>
                             <li style={{paddingTop: '10px'}}><Link to='/' class='link underline-links'  >SINT ODIT</Link></li>
                         </ul>
