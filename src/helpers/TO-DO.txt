@@ -1,6 +1,7 @@
 - consum apis correctly with react
 - Limit requests to pexels
 - compress images to improve performance
+- Understand how many use effect is correct to use
 
 CHECK: 
 DropDown.js, line 79

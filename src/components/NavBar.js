@@ -14,19 +14,25 @@ export default function NavBar(){
     const [mouseOut, setMouseOut] = useState(true);
     
     // only to chech when the cursor passes from one element to another
-    const [state, setState] = useState(true)
+    const [state, setState] = useState(true);
     
     const [over, setOver] = useState(false); // display dropdown menu
     const [ready, setReady] = useState(false);  // used to avoid first render; invoked under transition end block
     
     // used to detect when the menu is in side mode, when the menu icon is clicked
     const [ClickOnMenu, setClickOnMenu] = useState(false);
+
+    const [currentColor, setCurrentColor] = useState('white'); // el color del texto del nav-menu, para evitar confusiones
+
+    const toBlack = () => {
+        let a = document.getElementsByClassName('link-style-white');
+        for (let l of a){
+            l.style.color= over ? 'black' : currentColor;
+        }
+    }
+
     
-    //defines when the side menu is shown, its used only to swhitch between two values that are not used
-    const [showSideMenu, setShowSideMenu] = useState(false);
-
-    var DropDownContents = document.querySelectorAll(".dropdown-contents");
-
+    
 //     const [background, setBackground] = useState(null);
 
 //     useEffect(async ()=>{
@@ -40,17 +46,58 @@ export default function NavBar(){
 
 /** esto se acciona cuando el elemento ya esta creado y remueve ciertos elementos de la pagina*/
     useEffect(() => {
+        /** add event listener to the dropDownContainer that fires when the mouse leaves*/
+        let dropDownContainer = document.querySelector(".drop-down-menu > #drop-down-container");
+        dropDownContainer.addEventListener('mouseleave', () => {setOver(false); setMouseOut(true)}); //() => {setMouseOut(true); setOver(false)} 
+
+        let prevScrollpos = 0;
+
+        /** change nav-var color, and hide it when scroll down, and also modify text color */
+        const scrolling = () => {
+            let navBar = document.querySelector(".nav-bar");
+            let currentScrollPos = window.scrollY;
+           
+            if(window.scrollY > 100){
+                navBar.style.background = 'white';
+                let a = document.getElementsByClassName('link-style-white');
+                for (let l of a){
+                    l.style.color = 'black';
+                    setCurrentColor('black') // para evitar confusion cuando el color cambie con los eventos del raton
+                }
+                // the drop down menu display is set to none; but I still need to improve the transition
+                tr();
+            }else{
+                navBar.style.background = 'transparent'
+                let a = document.getElementsByClassName('link-style-white');
+                for (let l of a){
+                    l.style.color= 'white';
+                    setCurrentColor('white') // para evitar confusion cuando el color cambie con los eventos del raton
+
+                }
+            }
+
+            // hides the nav-bar
+            if (currentScrollPos < prevScrollpos) {
+                navBar.style.top = "0px";
+            } else {
+                navBar.style.top = "-100%";
+            }
+            
+            prevScrollpos = currentScrollPos; // compara donde está la scroll-bar con donde estuvo
+        }
+        
+        window.addEventListener('scroll', scrolling);
+
+
         // function called when transition ends
         const tr = () => {
-            var par = document.querySelector(".drop-down-menu");
+            let par = document.querySelector(".drop-down-menu");
             par.style.display = 'none';
-
         }
 
         if(over == false){
-            
             // this deletes the dropdown menu
-            var par = document.querySelector(".drop-down-menu");
+            let par = document.querySelector(".drop-down-menu");
             
             par.classList.remove("show-dropdown"); // the opacity is set to 0
             par.classList.add("none");
@@ -58,23 +105,23 @@ export default function NavBar(){
             /** the first condition: used to avoid the first render and launch an event after transition
              *  the second condition: to avoid that the transitions starts before the earlier ends
              * */
-            if(ready == true){
+            if(ready){
                 par.addEventListener("transitionend", tr)
     
                 //when dropdowns transition ends the elements disapear, this is useful when the pointer is out
                 // THIS CAND BE IMPROVED TO CREATE A BETTER TRANSITION
                 // setTimeout(() =>{
+                var DropDownContents = document.querySelectorAll(".dropdown-contents");
+
                 DropDownContents[lastcontentNumber].style.display = 'none'
                 // }, 10)
 
             }
 
-            setReady(true)
-                //  Y no se porque los elementos se acumulan cuando uso el display
 
         }else if(over == true){
             // this shows the dropdown menu, only when the side menu is hide
-            var par = document.querySelector(".drop-down-menu"); 
+            let par = document.querySelector(".drop-down-menu"); 
             if(ClickOnMenu == false){
                 par.style.display = 'flex';
             }
@@ -112,26 +159,31 @@ export default function NavBar(){
         }
         
         // turns menu's text to black when pointer is over, and the side menu is hidden
-        if(ClickOnMenu == false){
-            let a = document.getElementsByClassName('link-style-white');
-            for (let l of a){
-                l.style.color= over ? 'black' : 'white';
-            }
+        if(ClickOnMenu == false || window.scrollY > 100){
+            toBlack();
         }
         
-        
+        // is set true when the app renders
+        setReady(true);
+
         //This is the optional cleanup mechanism for effects. Every effect may return a function that cleans up after it
         return () => {
+            let par = document.querySelector(".drop-down-menu"); 
             par.removeEventListener("transitionend", tr)
+
+            let dropDownContainer = document.querySelector(".drop-down-menu > #drop-down-container");
+            // dropDownContainer.removeEventListener('mouseleave', printable);
+
         }
 
-    }, [over, state]);
+    }, [over, mouseOut, state]);
 
     return(
         <>
         <nav className="nav-bar">
+            <div className='menu-hiders' onMouseOver={() => {setMouseOut(true); setOver(false)}}></div>
             <div className="global-container">
-                <div className="first-container" onMouseOver={() => {setMouseOut(true); setOver(false)}}>
+                <div className="first-container" onMouseOver={() => { setMouseOut(true); setOver(false)}}>
                     <div className="menu-icon" onClick={() => {setClickOnMenu(!ClickOnMenu)}}>
                         <i className="material-icons">{ClickOnMenu ? 'close' : 'menu'}</i>
                     </div>
@@ -187,6 +239,7 @@ export default function NavBar(){
                     </li>
                 </ul> 
             </div> 
+            <div className='menu-hiders' onMouseOver={() => {setMouseOut(true); setOver(false)}}></div>
         </nav>  
         <DropDown contentNumber={contentNumber} over={over} ClickOnMenu={ClickOnMenu}/>
         </> 

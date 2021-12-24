@@ -24,7 +24,6 @@ export default function DropDown(props){
             // when side menu is displayed, body hides the overflow
             var body = document.querySelector("body");
             body.style.overflow = props.ClickOnMenu ? 'hidden' : 'auto';
-            console.log(body.style.overflow)
             
             var dropdownMenu = document.querySelector(".drop-down-menu");
             dropdownMenu.style.display = props.ClickOnMenu ? 'flex' : 'none';
@@ -71,7 +70,7 @@ export default function DropDown(props){
      *  conectado*/
     }, [props.contentNumber, props.over, props.ClickOnMenu, showSideMenu]) 
     return(
-        <div className={showSideMenu ? 'drop-down-menu active-dropdown' : 'drop-down-menu'}>
+        <div className={showSideMenu ? 'drop-down-menu active-dropdown' : 'drop-down-menu'} >
             <div id="drop-down-container">
                 <div id="drop-down-header">
                     <span className="material-icons" onClick={()=>{setShowSideMenu(false)}}>

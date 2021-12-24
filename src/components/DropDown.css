@@ -3,11 +3,12 @@
     /* height: 459px; */
     background-color: #ffffff;
     position: fixed;
-    transition: opacity .3s;
+    transition: opacity .4s;
     z-index: 1;
     display: flex;
     justify-content: center;
     /* animation: append-animate 0.5s linear;   LEARN WARNING DOWN*/
+    pointer-events: all;
 }
 
 .drop-down-menu > #drop-down-container{
@@ -26,6 +27,11 @@
 .drop-down-menu > #drop-down-container > #drop-down-header > .material-icons{
     cursor: pointer;
 }
+
+
+
+
+
 .none{
     opacity: 0;
 }

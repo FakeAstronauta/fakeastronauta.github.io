@@ -46,3 +46,12 @@
     esto debido a que si cambio el estilo antes de la transicion esta no se completa.
     Debo aprender sobre estructuras de datos y algoritmos para lograr crear un array
     con todos los elementos sobre los que paso el cursor y luego cambiar su display
+
+23/12/21
+    [SOLVED]
+    al agregar un addeventlistener, este tiene cierto efecto distinto cuando se hacen
+    in-line; para solucionar el problema que el valor no cambiaba tueve que agregar
+    ambos states modificados al dependency array de useEffect para que renderizara y 
+    el efecto de underline desapareciera. Me causa desconcierto porque al agregar los 
+    metodos en la etiqueta estos no mostraban problemas con el render, quizas porque
+    el evento se ejecutaba dentro del useEffect y hay conflicto con el render
