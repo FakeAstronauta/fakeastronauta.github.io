@@ -9,7 +9,7 @@
     font-size: 1.2rem;
     position: fixed;
     background-color: transparent;
-    transition: top .3s ease-in-out, background-color .5s linear;
+    transition: top .3s ease-in-out, background-color .2s linear;
     /* animation: append-animate 0.2s linear; */
     /* this is superior to drop-down-menu */
     z-index: 2; 
@@ -131,12 +131,12 @@
 
 @media screen and (max-width: 1025px) {
     .nav-bar{
-        z-index: 4; 
+        z-index: 3; 
     }
-    
-    .nav-bar > .global-container{
-        /* height: auto; */
-    } 
+
+    .nav-bar > .global-container {
+        height: fit-content;
+    }
 
     .nav-bar > .global-container > .first-container > .menu-icon{
         display: block;
@@ -192,12 +192,25 @@
         display: flex;
     }
 
-}
-
-@media screen and (max-width: 1025px) {
-    .nav-bar{
-        position: absolute !important;
+    .nav-bar > .menu-hiders{
+        display: none;
     }
-   
+
 }
 
+@media screen and (max-width: 769px) {
+    .nav-bar > .global-container > .first-container > .logo{
+        font-size: 18px;
+    }
+    
+    .nav-bar > .global-container > .first-container > .nav-bar-icons > .nav-bar-icon{
+        font-size: 17px;
+        font-weight: 200;
+    }
+
+    .nav-bar > .global-container > .first-container > .menu-icon > .material-icons{
+        font-size: 17px !important; 
+        cursor: pointer;
+    }
+    
+}

@@ -46,9 +46,38 @@ export default function NavBar(){
 
 /** esto se acciona cuando el elemento ya esta creado y remueve ciertos elementos de la pagina*/
     useEffect(() => {
-        /** add event listener to the dropDownContainer that fires when the mouse leaves*/
-        let dropDownContainer = document.querySelector(".drop-down-menu > #drop-down-container");
-        dropDownContainer.addEventListener('mouseleave', () => {setOver(false); setMouseOut(true)}); //() => {setMouseOut(true); setOver(false)} 
+        // this function is needed, the listener must be removed at the return, but only works with a declared function
+        let dropDownEvent = ()=>{setOver(false); setMouseOut(true)}
+        
+        // this blocks is the default assignation of the event, the one inside launchNavBarResize is when window resize and 
+        // the side menu is displayed
+        if(window.innerWidth > 1024){ // this condition avoids bugs with the events add to the dropdown
+            /** add event listener to the dropDownContainer that fires when the mouse leaves*/
+            let dropDownContainer = document.querySelector(".drop-down-menu > #drop-down-container");
+            // esto no funcionaba porque solo habia agregado el over y no mouseOute al array dependencies
+            dropDownContainer.addEventListener('mouseleave', dropDownEvent); //() => {setMouseOut(true); setOver(false)} 
+        }
+
+        /**this is fired every resize to detect when the window is upper than the condition and apply some styles */
+        let launchNavBarResize = () => {
+            if(window.innerWidth > 1024){ // this condition avoids bugs with the events add to the dropdown
+                var body = document.querySelector("body");
+                body.style.overflow ='auto';  // this keeps the the body overflow-auto when scrolling
+                
+                let par = document.querySelector(".drop-down-menu");
+                par.style.display = 'none'; // this deletes the drop-down-menu when resizing
+                let a = document.getElementsByClassName('link-style-white');
+                for (let l of a){
+                    l.style.color= 'white';
+                    setCurrentColor('white') // para evitar confusion cuando el color cambie con los eventos del raton
+                }
+
+                tr()
+                
+            }
+        }
+
+        window.addEventListener('resize', launchNavBarResize)
 
         let prevScrollpos = 0;
 
@@ -92,7 +121,9 @@ export default function NavBar(){
         // function called when transition ends
         const tr = () => {
             let par = document.querySelector(".drop-down-menu");
+            // if(ClickOnMenu == false){
             par.style.display = 'none';
+            // }
         }
 
         if(over == false){
@@ -112,20 +143,24 @@ export default function NavBar(){
                 // THIS CAND BE IMPROVED TO CREATE A BETTER TRANSITION
                 // setTimeout(() =>{
                 var DropDownContents = document.querySelectorAll(".dropdown-contents");
-
-                DropDownContents[lastcontentNumber].style.display = 'none'
+                if(lastcontentNumber != null){ // this avoids bugs related with lastcontentnumber
+                    DropDownContents[lastcontentNumber].style.display = 'none'
+                }
                 // }, 10)
 
             }
 
 
         }else if(over == true){
-            // this shows the dropdown menu, only when the side menu is hide
+            /** this shows the dropdown menu by default when over is true, only when the side menu is hide. 
+             * in DropDown.js the display is focused when the side menu is displayed.  
+            */ 
             let par = document.querySelector(".drop-down-menu"); 
-            if(ClickOnMenu == false){
+            if(window.innerWidth > 1024){ // this 'if' avoids tho double apply the style when resize
                 par.style.display = 'flex';
+                console.log('display flex')
             }
-            
+                
             /**
              * This setTimeout is used to avoid bugs when the fade-in starts caused by the display = flex
              * (the soft effects is avoided and the menu appears)
@@ -134,12 +169,11 @@ export default function NavBar(){
                 par.classList.add("show-dropdown");
                 par.classList.remove("none");
             }, 10)
-
-
         }
 
         // if the side menu is not displayed
         if(ClickOnMenu == false){
+           
             // used to hide the underline style of the last element when the cursor is over another or out the menu
             if(lastcontentNumber != null){
                 var underlineEffect = document.querySelectorAll(".nav-bar > .global-container > .nav-menu > .nav-item > .nav-links");
@@ -158,10 +192,10 @@ export default function NavBar(){
             setLastcontentNumber(contentNumber)
         }
         
-        // turns menu's text to black when pointer is over, and the side menu is hidden
-        if(ClickOnMenu == false || window.scrollY > 100){
-            toBlack();
-        }
+        /** turns menu's text to black when pointer is over and the side menu is hidden. the innerWidth is used
+        * to avoid bugs when resize
+        */
+        if(window.innerWidth > 1024){toBlack();}
         
         // is set true when the app renders
         setReady(true);
@@ -172,11 +206,15 @@ export default function NavBar(){
             par.removeEventListener("transitionend", tr)
 
             let dropDownContainer = document.querySelector(".drop-down-menu > #drop-down-container");
-            // dropDownContainer.removeEventListener('mouseleave', printable);
+            // esto no funcionaba porque solo habia agregado el over y no mouseOute al array dependencies
+            dropDownContainer.removeEventListener('mouseleave', dropDownEvent)
+    
+            window.removeEventListener('resize', launchNavBarResize)
+            window.removeEventListener('scroll', scrolling);
 
         }
 
-    }, [over, mouseOut, state]);
+    }, [over, mouseOut, state, window.innerWidth]);
 
     return(
         <>
@@ -184,7 +222,7 @@ export default function NavBar(){
             <div className='menu-hiders' onMouseOver={() => {setMouseOut(true); setOver(false)}}></div>
             <div className="global-container">
                 <div className="first-container" onMouseOver={() => { setMouseOut(true); setOver(false)}}>
-                    <div className="menu-icon" onClick={() => {setClickOnMenu(!ClickOnMenu)}}>
+                    <div className="menu-icon link-style-white" onClick={() => {setClickOnMenu(true)}}>
                         <i className="material-icons">{ClickOnMenu ? 'close' : 'menu'}</i>
                     </div>
                     <Link to = '/' className='logo link-style-white cinzel'>MONTREAL BOTÉZ</Link>
@@ -200,7 +238,7 @@ export default function NavBar(){
                 {/* TO DO: optimizar todos las funciones llamadas en los mouseover, son demasiadas
                     tambien parece necesario mover el addEvent y mejor usar las propiedades en los elementos */}
                 <ul className={ClickOnMenu ? 'nav-menu active' : 'nav-menu'}>
-                    <li id='close-button-menu'><span className="material-icons" onClick={() => {setClickOnMenu(!ClickOnMenu)}} >close</span></li>
+                    <li id='close-button-menu'><span className="material-icons" onClick={() => {setClickOnMenu(false)}} >close</span></li>
                     <li className="nav-item">
                         <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(0); setMouseOut(false); setOver(true); setState(!state)}}>TODAY'S</Link>
                         <span class="material-icons">

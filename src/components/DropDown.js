@@ -21,15 +21,44 @@ export default function DropDown(props){
     
     /** Every number passed is used to display a different component */
     useEffect(() => {
-            // when side menu is displayed, body hides the overflow
+            // this is de default behavior, when side menu is displayed, body hides the overflow
             var body = document.querySelector("body");
-            body.style.overflow = props.ClickOnMenu ? 'hidden' : 'auto';
-            
+
+            if(props.ClickOnMenu && window.innerWidth <= 1024){ //when side menu is displayed,
+                body.style.overflow ='hidden';
+                console.log('hid')
+                
+            }else if(props.ClickOnMenu == false || window.innerWidth > 1024){
+                body.style.overflow ='auto';
+                console.log('aut')
+
+            }
+            /**
+             * this is used if the user zooms when te side menu is active
+             */
+            let launchResize = () => {
+                if(props.ClickOnMenu && window.innerWidth <= 1024){ //when side menu is displayed,
+                    body.style.overflow ='hidden';
+
+                }
+                // here the side menu is hide, and the screen remains cleen when resize
+                if(window.innerWidth > 1024){
+                    setShowSideMenu(false);
+                    // console.log('when RESIZE')
+                    
+                }
+            }
+            // GREAT NOW I CAN MODIFY THINGS WITH ZOOM
+            window.addEventListener('resize', launchResize)
+
+            // this show the side-menu, works with props.ClickOnMenu if is upper of 1024 there is some conditions in NavBar when resize
             var dropdownMenu = document.querySelector(".drop-down-menu");
-            dropdownMenu.style.display = props.ClickOnMenu ? 'flex' : 'none';
+            if(window.innerWidth < 1025){ // this condition limits change the display when other renders happen
+            dropdownMenu.style.display = props.ClickOnMenu  ? 'flex' : 'none';}
             
             const revealSideMenu = () => {
                 setShowSideMenu(true)
+                // console.log('when click')
             }
 
             var navItems = document.querySelectorAll(".nav-item");
@@ -64,6 +93,8 @@ export default function DropDown(props){
 
             return () => {
                 navItems.forEach((a)=>{a.removeEventListener('click', revealSideMenu)})
+                window.removeEventListener('resize', launchResize)
+
             }
     /** como es esto posible? parece que si dejo el objeto reacciona a todos
      *  los renders del elemento donde lo envian, como si en react todo esta
