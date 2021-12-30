@@ -158,7 +158,6 @@ export default function NavBar(){
             let par = document.querySelector(".drop-down-menu"); 
             if(window.innerWidth > 1024){ // this 'if' avoids tho double apply the style when resize
                 par.style.display = 'flex';
-                console.log('display flex')
             }
                 
             /**

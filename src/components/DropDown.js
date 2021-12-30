@@ -26,11 +26,9 @@ export default function DropDown(props){
 
             if(props.ClickOnMenu && window.innerWidth <= 1024){ //when side menu is displayed,
                 body.style.overflow ='hidden';
-                console.log('hid')
                 
             }else if(props.ClickOnMenu == false || window.innerWidth > 1024){
                 body.style.overflow ='auto';
-                console.log('aut')
 
             }
             /**
@@ -44,8 +42,7 @@ export default function DropDown(props){
                 // here the side menu is hide, and the screen remains cleen when resize
                 if(window.innerWidth > 1024){
                     setShowSideMenu(false);
-                    // console.log('when RESIZE')
-                    
+
                 }
             }
             // GREAT NOW I CAN MODIFY THINGS WITH ZOOM
@@ -58,7 +55,6 @@ export default function DropDown(props){
             
             const revealSideMenu = () => {
                 setShowSideMenu(true)
-                // console.log('when click')
             }
 
             var navItems = document.querySelectorAll(".nav-item");

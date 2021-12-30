@@ -138,6 +138,10 @@
         height: fit-content;
     }
 
+    .nav-bar > .global-container > .first-container{
+        height: 60px;
+    }
+
     .nav-bar > .global-container > .first-container > .menu-icon{
         display: block;
     }

@@ -55,3 +55,9 @@
     el efecto de underline desapareciera. Me causa desconcierto porque al agregar los 
     metodos en la etiqueta estos no mostraban problemas con el render, quizas porque
     el evento se ejecutaba dentro del useEffect y hay conflicto con el render
+
+28/12/21
+    [PENDIENTE]
+    debo encontrar el problema al escalar un elemento dentro de un carrousel, al agregar
+    margenes estos tienen cierto defase que solo puedo corregir al tanteo, lo cual no es
+    profesional.
