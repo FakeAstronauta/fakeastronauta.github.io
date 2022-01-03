@@ -1,0 +1,218 @@
+#product-counter{
+    position: relative;
+    background: rgb(222,222,222);
+    background: linear-gradient(357deg, rgba(222,222,222,1) 34%, rgba(226,226,226,0) 100%); 
+    width: 100%;
+    height: auto;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#product-counter > #header{
+    /* position: absolute; */
+    z-index: 1;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    text-align: center;
+    line-height: 3em;
+}
+
+#product-counter > #header > #title{
+    font-family: cinzel;
+    font-size: 3.4em;
+    font-weight: 400;
+}
+
+#product-counter > #header > #controllers {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: fit-content;
+    margin-top: 1.2em;
+}
+
+#product-counter > #header > #controllers > div[id*="controller"] {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: 0 15px 0 15px;
+}
+
+#controller-one{
+    background-color: violet;
+}
+
+#controller-two{
+    background-color: rgb(33, 75, 165);
+}
+
+#controller-three{
+    background-color: rgb(255, 29, 97);
+}
+
+#controller-four{
+    background-color: rgb(236, 81, 42);
+}
+
+#product-counter > #header > #controllers > #circle-selector {
+    position: absolute;
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 50%;
+    border: solid 0.5px #909090;
+    top: -5px;
+    left: 10px;
+    transition: left 0.3s ease;
+}
+
+#product-counter > #body{
+    position: relative;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 7em; */
+    background-color: yellow;
+}
+
+#product-counter > #body > #image-full-size{
+}
+
+#product-counter > #body > #image-full-size > img{
+    width: 60vw;
+    height: auto;
+    /* max-width: 410px; */
+}
+
+#product-counter > #body > #thumbnail{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 3em;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #FFFFFF;
+
+
+    box-shadow: 0px 0px 25px 0.1px #00000013;
+}
+
+#product-counter > #body > #thumbnail > #img-container > img{
+    width: 16vw;
+    height: auto;
+}
+
+
+#product-counter > #body > #thumbnail >#title-container{
+    line-height: 15px;
+    text-align: center;
+    width: 11vw;
+    margin: 15px 0 15px 0;
+}
+
+#product-counter > #body > #thumbnail >#title-container > b{
+    font-size: 0.8em;
+    font-family: inter;
+}
+
+#product-counter > #body > #thumbnail > #black-button{
+    height: fit-content;
+    Width: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    border-radius: 4px;
+    padding: 10px 15px 10px 15px;
+    margin: 5px 0 18px 0;
+    
+    font-family: inter;
+    color: #FFFFFF;
+    font-size: 0.8em;
+    font-weight: 500;
+    text-align: center;
+}
+
+@media screen and (max-width: 770px){
+    #product-counter{
+        margin-top: 150px;
+    }
+
+    #product-counter > #header > #title{
+        font-size: 2em;
+    }
+
+    #product-counter > #header{
+        line-height: 1.9em;
+    }
+
+    #product-counter > #header > #controllers > div[id*="controller"] {
+        width: 0.7em;
+        height: 0.7em;
+        margin: 0 15px 0 15px;
+    }
+
+    #product-counter > #header > #controllers > #circle-selector {
+        width: 1.3em;
+        height: 1.3em;
+        top: -5px;
+        left: 10px;
+        transition: left 0.3s ease;
+    }
+    
+    #product-counter > #body > #image-full-size > img{
+        width: 90vw;
+    }
+
+    #product-counter > #body > #thumbnail > #img-container > img{
+        display: none;
+    }
+
+    #product-counter > #body > #thumbnail{
+        width: 36vw;
+    }
+
+    #product-counter > #body > #thumbnail >#title-container{
+        line-height: 15px;
+        text-align: center;
+        width: 30vw;
+        margin: 15px 0 15px 0;
+    }
+
+    #product-counter > #body > #thumbnail > #black-button{
+        height: fit-content;
+        Width: 28vw;
+        
+        padding: 10px 15px 10px 15px;
+        margin: 5px 0 18px 0;
+        
+       
+        font-size: 0.8em;
+        font-weight: 500;
+    }
+}
+
+@media screen and (max-width: 550px){
+    #product-counter{
+        margin-top: 230px;
+    }
+
+    #product-counter > #body{
+        /* margin-top: 10em; */
+    }   
+
+    #product-counter > #header{
+        position: relative;
+    }
+}

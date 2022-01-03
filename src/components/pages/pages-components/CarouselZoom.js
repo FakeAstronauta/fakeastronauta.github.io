@@ -4,30 +4,27 @@ import {useState, useEffect} from 'react';
 
 
 export default function CarouselZoom(){
-
-    const galleryControls = ['previous', 'add', 'next'];
-    const inner = document.querySelectorAll('.inner-gallery');
     const galleryItems = document.querySelectorAll('.gallery-item');
     const carouselArray = [...galleryItems];
     const prev = document.querySelector('.gallery-control-prev');
     const next = document.querySelector('.gallery-control-next');
     const footerItems = [
-        '1consectetur Magnam sit corporis quidem',
-        '2Lorem ipsum dolor sit',
-        '3amet consectetur adipisicing elit',
-        '4Illo aliquid officiis',
-        '5in ducimus nisi',
-        '6nam dolor aperiam itaque', 
-        '7quas voluptates blanditiis maiores'
+        'consectetur Magnam sit corporis quidem',
+        'Lorem ipsum dolor sit',
+        'amet consectetur adipisicing elit',
+        'Illo aliquid officiis',
+        'in ducimus nisi',
+        'nam dolor aperiam itaque', 
+        'quas voluptates blanditiis maiores'
     ];
+
     let lastprev = null;
     let lastnext = null;
     
-    var [footerIndex, setfooterIndex] = useState(3);
-    var [state, setState] = useState(false);
+    let [footerIndex, setfooterIndex] = useState(3);
+    let [state, setState] = useState(false);
     
-    var bool = null;
-    var boolTwo = null;
+    let bool = null; // in this case I can avoid using useState because the app is not redered after the value changes
     
     useEffect(() =>{
 
@@ -38,13 +35,15 @@ export default function CarouselZoom(){
                 carouselFooterCont.style.animation = 'fadeinout 1s linear none'
                 setTimeout(() => {
                     carouselFooterCont.style.animation = 'none';
-                    bool = false
+                    bool = false;
                 }, 1000)
             }
         }
 
         let changeFooter = (i) => {
             if(bool != true){
+                console.log(bool)
+
                 addFade();
                 setTimeout(() => { //change the text at the half of the transition
                     if(true){setfooterIndex(footerIndex += i)} //se renderiza porque affecta de un solo al estate
@@ -137,9 +136,12 @@ export default function CarouselZoom(){
             <div className="gallery-item gallery-item-6"><img className='inner-gallery' src='https://via.placeholder.com/200x300'></img></div>
             <div className="gallery-item gallery-item-7"><img className='inner-gallery' src='https://via.placeholder.com/200x300'></img></div>
             
-            <span className="gallery-control-prev material-icons">navigate_before</span>
-            <span className="gallery-control-next material-icons">navigate_next</span>
+            <div id='navigators-container'>
+                <span className="gallery-control-prev material-icons">navigate_before</span>
+                <span className="gallery-control-next material-icons">navigate_next</span>
+            </div>
         </div>
+        <img id='single-image' src='https://via.placeholder.com/650x750'></img>
         <div id='carousel-footer-container'>
             <span className='cinzel carousel-footer'>{footerItems[footerIndex]}</span>
             <div id='carousel-black-button'>

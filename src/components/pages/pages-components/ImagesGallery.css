@@ -1,0 +1,29 @@
+#images-gallery > header > #title{
+    font-size: 2.2em;
+    font-family: cinzel;
+    text-align: center;
+    margin: 0.4em 0 0.4em 0;
+}
+
+
+#images-gallery > #body > #images-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: yellowgreen; */
+    padding: 0 9vw 0 9vw;
+}
+
+#images-gallery > #body > #images-container > .img-wrap{
+    overflow: hidden;
+    background-color: aqua;
+    border-radius: 3%;
+}
+
+#images-gallery > #body > #images-container > .img-wrap > img{
+    width: 15vw;
+    height: auto;
+
+}

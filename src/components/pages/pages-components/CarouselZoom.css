@@ -18,7 +18,7 @@ body{
 }
 
 
-.gallery-container {
+.gallery > .gallery-container {
     display: flex;
     align-items: center;
     position: relative;
@@ -80,22 +80,28 @@ body{
     transform: translateX(100.6vw);
 }
 
-.gallery-control-prev, .gallery-control-next{
+#navigators-container{
     position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gallery-control-prev, .gallery-control-next{
     z-index: 0;
-    top: 30vh;
+    /* top: 15vw; */
     cursor: pointer;
-    font-size: 15vh;
+    font-size: 6em;
     margin:0 ;
     font-weight: 300;
 }
 
 .gallery-control-prev{
-    left: 0vw;
+    /* left: 0vw; */
 }
 
 .gallery-control-next{
-    right: 0vw;
+    /* margin-left: 80%; */
 }
 
 .gallery > #carousel-footer-container{
@@ -106,10 +112,10 @@ body{
     position: absolute;
     bottom: 20px;
     text-align: center;
-    width: 270px;
-    font-size: 35px;
-    font-weight: 400;
-    line-height: 30px;
+    width: 37vw;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 25px;
 
 }
 
@@ -139,6 +145,37 @@ body{
     font-weight: 500;
 }
 
+.gallery > #single-image{
+    display: none;
+    width: 78vw;
+    height: auto;
+    margin-top: 30px;
+}
+
 .opacity-zero{
     opacity: 0;
+}
+
+@media screen and (max-width: 800px) {
+    .gallery > #single-image{
+        display: block;
+        margin-bottom: 60px;
+    }
+    
+    .gallery > .gallery-container {
+        display: none;
+    }
+
+    .gallery > .carousel-title{
+        display: none;
+    }
+
+    .gallery > #carousel-footer-container > #carousel-black-button{
+        padding: 5px 12px 5px 12px;
+    }
+
+    .gallery > #carousel-footer-container > #carousel-black-button > #button-text{
+        font-size: 11px;
+    }
+
 }

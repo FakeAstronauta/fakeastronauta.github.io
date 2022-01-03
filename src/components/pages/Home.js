@@ -2,6 +2,9 @@ import React from 'react';
 import {Carousel} from 'react-bootstrap';
 import  './Home.css'
 import CarouselZoom from './pages-components/CarouselZoom';
+import NewsSection from './pages-components/NewsSection';
+import ProductCounter from './pages-components/ProductCounter';
+import ImagesGallery from './pages-components/ImagesGallery';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function DropDown(){
@@ -100,9 +103,10 @@ export default function DropDown(){
         </div>
         
         <CarouselZoom></CarouselZoom>
-
-        <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img>
-        {/* <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, praesentium. Totam distinctio consectetur ducimus accusantium ut facere laudantium repellendus? Quod odit veritatis amet ut nobis, iure sit suscipit voluptatum.</a> */}
+        <NewsSection></NewsSection>
+        <ProductCounter></ProductCounter>
+        <ImagesGallery></ImagesGallery>
+        {/* <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img> */}
     </div>
     </>
     )
