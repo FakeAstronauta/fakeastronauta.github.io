@@ -61,3 +61,11 @@
     debo encontrar el problema al escalar un elemento dentro de un carrousel, al agregar
     margenes estos tienen cierto defase que solo puedo corregir al tanteo, lo cual no es
     profesional.
+
+
+03/01/21
+    [PENDIENTE]
+    Investigar la mejor forma de implementar una imagen con gradient y que esta se pueda
+    agrandar y que el gradient lo haga con ella. aun debo probar usar la imagen como
+    background. no logre hacerlo satisfactoriamente con la imagen contenida en el div
+    tuve que sacarla para lograrlo

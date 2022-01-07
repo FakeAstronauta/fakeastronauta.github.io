@@ -1,10 +1,14 @@
 import React from 'react';
-import {Carousel} from 'react-bootstrap';
 import  './Home.css'
+
 import CarouselZoom from './pages-components/CarouselZoom';
 import NewsSection from './pages-components/NewsSection';
 import ProductCounter from './pages-components/ProductCounter';
 import ImagesGallery from './pages-components/ImagesGallery';
+import Newsletter from './pages-components/Newsletter';
+import Offers from './pages-components/Offers';
+
+import {Carousel} from 'react-bootstrap';       
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function DropDown(){
@@ -106,6 +110,8 @@ export default function DropDown(){
         <NewsSection></NewsSection>
         <ProductCounter></ProductCounter>
         <ImagesGallery></ImagesGallery>
+        <Offers></Offers>
+        <Newsletter></Newsletter>
         {/* <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img> */}
     </div>
     </>

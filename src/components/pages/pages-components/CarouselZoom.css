@@ -124,7 +124,7 @@ body{
     50% { opacity: 0; }   
   }
   
-  @keyframes fadeinout {
+  @keyframes {
     0%,100% { opacity: 1; }
     50% { opacity: 0; }
 }

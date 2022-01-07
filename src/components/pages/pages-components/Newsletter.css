@@ -1,0 +1,101 @@
+#newsletter{
+    display: flex;
+    padding: 15px 0 15px 0;
+}
+
+#newsletter > #text{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1em 0 0 3em;
+}
+
+#newsletter > #text > h2{
+    font-family: cinzel;
+
+}
+
+#newsletter > #text > p{
+    font-size: 1em;
+    font-weight: 400;
+    width: 40vw;
+    line-height: 1.2em;
+}
+
+#newsletter > #input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+}
+
+#newsletter > #input > form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#newsletter > #input > form > #text-area{
+    border: .1px solid rgb(165, 165, 165); 
+    border-radius: 4px;
+    padding-left: 10px;
+    width: 30vw;
+    height: 3em;
+    margin-right: 20px;
+    
+}
+
+#newsletter > #input > form > #button{
+    border: none;
+    font-family: inter;
+    height: 5vh;
+    width: 7vw;
+    background-color: transparent;
+}
+
+
+/* what is happening here */
+#newsletter > #input > form > #text-area:focus::placeholder {
+    color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+    #newsletter {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #newsletter > #text{
+        width: 80%;
+        padding: 1em 0 0 0;
+        align-items: center;
+    }
+
+    #newsletter > #text > p{
+        width: 100%;
+        text-align: center;
+    }
+
+    #newsletter > #text > h2{
+        text-align: center;
+    }
+
+    
+    #newsletter > #input > form > #text-area{
+        width: 55vw;
+        margin-right: 10px;
+    }
+    
+    #newsletter > #input > form {
+        margin-top: 1em;
+
+    }
+
+    #newsletter > #input > form > #button{
+        width: 5em;
+        font-size: 0.8em;
+    }
+
+}

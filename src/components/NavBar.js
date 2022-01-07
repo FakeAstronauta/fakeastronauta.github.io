@@ -239,7 +239,7 @@ export default function NavBar(){
                 <ul className={ClickOnMenu ? 'nav-menu active' : 'nav-menu'}>
                     <li id='close-button-menu'><span className="material-icons" onClick={() => {setClickOnMenu(false)}} >close</span></li>
                     <li className="nav-item">
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(0); setMouseOut(false); setOver(true); setState(!state)}}>TODAY'S</Link>
+                        <Link to='/todays' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(0); setMouseOut(false); setOver(true); setState(!state)}}>TODAY'S</Link>
                         <span class="material-icons">
                             chevron_right
                         </span>

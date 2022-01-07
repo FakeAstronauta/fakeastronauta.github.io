@@ -208,11 +208,13 @@
         margin-top: 230px;
     }
 
-    #product-counter > #body{
-        /* margin-top: 10em; */
-    }   
-
     #product-counter > #header{
         position: relative;
     }
+}
+
+@keyframes fadeinout {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100%{opacity: 1;}
 }

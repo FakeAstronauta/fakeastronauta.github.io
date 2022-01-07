@@ -13,17 +13,102 @@
     align-items: center;
     justify-content: space-between;
     /* background-color: yellowgreen; */
-    padding: 0 9vw 0 9vw;
+    padding: 0 5vw 0 5vw;
 }
 
-#images-gallery > #body > #images-container > .img-wrap{
+#images-gallery > #body > #images-container > div[class*='img-wrap']{
+    position: relative;
     overflow: hidden;
     background-color: aqua;
     border-radius: 3%;
+    display: flex;
+    align-items: flex-end;
+    justify-items: center;    
 }
 
-#images-gallery > #body > #images-container > .img-wrap > img{
-    width: 15vw;
-    height: auto;
+/* tube problemas con el gradient, debido a que div no mantiene un tamaño cuando uno de los valores es
+auto o % */
 
+#images-gallery > #body > #images-container > div[class*='img-wrap'] > .gradient{
+    position: absolute;
+    width: 17vw;
+    height: 29.5vw;
+
+}
+
+#images-gallery > #body > #images-container > div[class*='img-wrap'] > .gradient:after{
+    display: block;
+    position: relative;
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0.507) 0%, rgba(250,202,184,0) 60%);
+    height: 100%;
+    width: 100%;
+    content: '';
+    border-radius: 3%;
+
+}
+
+#images-gallery > #body > #images-container > div[class*='img-wrap'] > img{
+    width: 17vw;
+    height: auto;
+}
+
+#images-gallery > #body > #images-container > div[class*='img-wrap'] > p{
+    position: absolute;
+    width: 15vw;
+    text-align: center;
+    color: #FFFFFF;
+    z-index: 1;
+    font-family: inter;
+    font-size: 0.9em;
+    margin-bottom: 30px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+@media screen and (max-width: 770px){
+   .img-wrap-one{
+        display: none !important;
+    }
+    .img-wrap-two {
+        display: none !important;
+    }
+    .img-wrap-three {
+        display: none !important;
+    }
+
+    #images-gallery > #body > #images-container > .img-wrap-four > img{
+        width: 43vw !important;
+    }
+
+    #images-gallery > #body > #images-container > .img-wrap-five > img{
+        width: 43vw !important;
+    }
+
+    #images-gallery > #body > #images-container > .img-wrap-four > .gradient{
+        width: 43vw !important;
+        height: 69.5vw !important;
+
+    }
+
+    #images-gallery > #body > #images-container > .img-wrap-five > .gradient{
+        width: 43vw !important;
+        height: 69.5vw !important;
+
+    }
+
+    #images-gallery > #body > #images-container{
+        padding: 0 4vw 0 4vw;
+    }
+
+    #images-gallery > #body > #images-container > div[class*='img-wrap'] > p{
+        position: absolute;
+        width: 30vw;
+
+    }
+}
+
+@media screen and (max-width: 770px){
+    #images-gallery > #body > #images-container > div[class*='img-wrap'] > p{
+        font-size: 0.7em;
+    }
 }

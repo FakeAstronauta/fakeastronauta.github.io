@@ -17,10 +17,12 @@ export default function ProductCounter(){
     let windowWidth = window.innerWidth;
 
     let addFade = () => { // el fade ocurre mal, las letras cambian normal. al presionarlo dos veces el fade no ocurre, creo que aun lo acciono antes que termine la transicion. puede que solo sea un limbo mental y que en eralidad solo me quede esperando el fade cuando en realidad no lo accione
+        
         let bodyImage = document.querySelector('#product-counter > #body');
         if(bool != true){
             setBool(true);
             bodyImage.style.animation = 'fadeinout 1s linear none'
+            console.log('fade added')
             setTimeout(() => {
                 bodyImage.style.animation = 'none';
                 setBool(false);
