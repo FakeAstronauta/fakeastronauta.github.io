@@ -112,7 +112,6 @@ export default function DropDown(){
         <ImagesGallery></ImagesGallery>
         <Offers></Offers>
         <Newsletter></Newsletter>
-        {/* <img src='pexels-godisable-jacob-965324.jpg' style={{width: '100%', zIndex: '0'}}></img> */}
     </div>
     </>
     )

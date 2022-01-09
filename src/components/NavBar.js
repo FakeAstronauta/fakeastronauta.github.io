@@ -62,7 +62,7 @@ export default function NavBar(){
         let launchNavBarResize = () => {
             if(window.innerWidth > 1024){ // this condition avoids bugs with the events add to the dropdown
                 var body = document.querySelector("body");
-                body.style.overflow ='auto';  // this keeps the the body overflow-auto when scrolling
+                body.style.overflowY ='auto';  // this keeps the the body overflow-auto when scrolling
                 
                 let par = document.querySelector(".drop-down-menu");
                 par.style.display = 'none'; // this deletes the drop-down-menu when resizing
@@ -110,6 +110,7 @@ export default function NavBar(){
                 navBar.style.top = "0px";
             } else {
                 navBar.style.top = "-100%";
+                console.log(prevScrollpos + ' ' + currentScrollPos)
             }
             
             prevScrollpos = currentScrollPos; // compara donde está la scroll-bar con donde estuvo

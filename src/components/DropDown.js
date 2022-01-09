@@ -25,10 +25,10 @@ export default function DropDown(props){
             var body = document.querySelector("body");
 
             if(props.ClickOnMenu && window.innerWidth <= 1024){ //when side menu is displayed,
-                body.style.overflow ='hidden';
+                body.style.overflowY ='hidden';
                 
             }else if(props.ClickOnMenu == false || window.innerWidth > 1024){
-                body.style.overflow ='auto';
+                body.style.overflowY ='auto';
 
             }
             /**
@@ -36,7 +36,7 @@ export default function DropDown(props){
              */
             let launchResize = () => {
                 if(props.ClickOnMenu && window.innerWidth <= 1024){ //when side menu is displayed,
-                    body.style.overflow ='hidden';
+                    body.style.overflowY ='hidden';
 
                 }
                 // here the side menu is hide, and the screen remains cleen when resize

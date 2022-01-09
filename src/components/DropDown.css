@@ -66,7 +66,7 @@
         width: 100vw;
         height: fit-content;
         right: -100%;
-        position: absolute;
+        position: fixed;
         /* this helps to the container to sorround the content */
         transition: right .5s ease;
         z-index: 4;
@@ -81,7 +81,7 @@
         height: 100vh;
         flex-direction: column;
         /* this helps to the container to sorround the content */
-        overflow: auto; 
+        overflow-y: auto; 
         align-items: center;
     }
 
