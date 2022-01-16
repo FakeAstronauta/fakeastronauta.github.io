@@ -24,6 +24,11 @@ export default function NavBar(){
 
     const [currentColor, setCurrentColor] = useState('white'); // el color del texto del nav-menu, para evitar confusiones
 
+    const [buttonPressed, setButtonPressed] = useState(null);
+    
+    const [currentScrollPos, setCurrentScrollPos] = useState(null);
+    const [prevScrollPos, setPrevScrollPos] = useState(null);
+
     const toBlack = () => {
         let a = document.getElementsByClassName('link-style-white');
         for (let l of a){
@@ -79,12 +84,10 @@ export default function NavBar(){
 
         window.addEventListener('resize', launchNavBarResize)
 
-        let prevScrollpos = 0;
-
         /** change nav-var color, and hide it when scroll down, and also modify text color */
-        const scrolling = () => {
+        const scrolling = (e) => {
             let navBar = document.querySelector(".nav-bar");
-            let currentScrollPos = window.scrollY;
+            setCurrentScrollPos(window.scrollY);
            
             if(window.scrollY > 100){
                 navBar.style.background = 'white';
@@ -105,18 +108,25 @@ export default function NavBar(){
                 }
             }
 
-            // hides the nav-bar
-            if (currentScrollPos < prevScrollpos) {
-                navBar.style.top = "0px";
-            } else {
-                navBar.style.top = "-100%";
-                console.log(prevScrollpos + ' ' + currentScrollPos)
+            /** 
+             * hides the nav-bar only when there is a wheel event or the scroll bar is clicked
+             * 
+             * */ 
+            if(e.clientX > window.innerWidth - 20 || buttonPressed || e.type == 'wheel'){
+                if (currentScrollPos < prevScrollPos || currentScrollPos == prevScrollPos) {
+                    navBar.style.top = "0px";
+                } else if(currentScrollPos > prevScrollPos) {
+                    navBar.style.top = "-100%";
+                } 
             }
             
-            prevScrollpos = currentScrollPos; // compara donde está la scroll-bar con donde estuvo
+            setPrevScrollPos(currentScrollPos); // compara donde está la scroll-bar con donde estuvo
         }
         
-        window.addEventListener('scroll', scrolling);
+        window.addEventListener('wheel', scrolling); // I added this event to be more precise and avoid scroll bugs
+        window.addEventListener('scroll', scrolling)
+        window.addEventListener('mousedown', () => {setButtonPressed(true)}); // both button-events stablish conditions when to scroll
+        window.addEventListener('mouseup', () => {setButtonPressed(false)});
 
 
         // function called when transition ends
@@ -211,10 +221,12 @@ export default function NavBar(){
     
             window.removeEventListener('resize', launchNavBarResize)
             window.removeEventListener('scroll', scrolling);
+            window.removeEventListener('wheel', scrolling);
+
 
         }
 
-    }, [over, mouseOut, state, window.innerWidth]);
+    }, [over, mouseOut, state, window.innerWidth, prevScrollPos, currentScrollPos]);
 
     return(
         <>

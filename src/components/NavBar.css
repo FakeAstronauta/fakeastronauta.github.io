@@ -9,7 +9,7 @@
     font-size: 1.2rem;
     position: fixed;
     background-color: transparent;
-    transition: top .3s ease-in-out, background-color .2s linear;
+    transition: top .2s ease-in-out, background-color .2s linear;
     /* animation: append-animate 0.2s linear; */
     /* this is superior to drop-down-menu */
     z-index: 2; 

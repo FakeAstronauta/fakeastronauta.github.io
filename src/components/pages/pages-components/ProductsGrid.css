@@ -1,0 +1,44 @@
+body{
+    margin: 0px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 23.96%);
+    gap: 1.33vw;
+}
+
+.grid-item{
+    /* this value avoid an auto margin at the bottom, now I know that
+    the display has some bugs
+    */
+    display: flex;
+    flex-direction: column;
+}
+
+img{
+    width: 100%;
+    height: 25vw;
+    object-fit: cover;
+}
+#text-container{
+    text-align: center;
+    font-family: inter;
+    line-height: 1.2em;
+}
+h4{
+    font-weight: 400;
+    font-size: 0.9em;
+    color: rgb(216, 18, 18);
+    margin: 0.8em 0 0.5em 0;
+}
+bold{
+    font-size: 0.9em;
+    font-weight: 500;
+    
+}
+p{
+    font-weight: 400;
+    font-size: 0.9em;
+    color: rgb(100, 100, 100);
+    margin: 0.8em 0 3em 0;
+}

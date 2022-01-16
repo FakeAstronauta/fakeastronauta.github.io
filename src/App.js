@@ -14,7 +14,7 @@ function App() {
         <Route exact path='/' element={<Home/>}/>
         <Route exact path='/todays' element={<Todays/>}/>
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
     </Router>
   );
 }

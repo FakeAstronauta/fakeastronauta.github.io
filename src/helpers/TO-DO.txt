@@ -1,7 +1,9 @@
 - consum apis correctly with react
 - Limit requests to pexels
 - compress images to improve performance
-- Understand how many use effect is correct to use
+- Understand how use useEffect is correct to use
 
 CHECK: 
-DropDown.js, line 79
+- DropDown.js, line 79
+- minor bug: menu and StayOnTop have some delay when hides; the problem is the wheel event
+but i need to proceed

@@ -69,3 +69,7 @@
     agrandar y que el gradient lo haga con ella. aun debo probar usar la imagen como
     background. no logre hacerlo satisfactoriamente con la imagen contenida en el div
     tuve que sacarla para lograrlo
+
+09/01/21
+    [PENDIENTE]
+    aun tengo problemas al hacer zoon con el side menu activo, pero necesito seguir

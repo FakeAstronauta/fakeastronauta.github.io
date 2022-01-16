@@ -1,11 +1,7 @@
-#static-header > img{
-    width: 100%; 
+#static-header{
+   
 }
 
-#static-header{
-    /* 
-    I noticed that the page scrolled due to the image size, I don't know exactly why, but i could fix it 
-    addig a fixed max-with
-    */
-    max-width: calc(100vw - 17px); 
+#static-header > img{
+    width: 100%;
 }
