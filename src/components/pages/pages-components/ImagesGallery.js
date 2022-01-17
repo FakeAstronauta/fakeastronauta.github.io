@@ -3,6 +3,16 @@ import './ImagesGallery.css';
 import {useState, useEffect} from 'react';
 
 export default function ProductCounter(){
+    useEffect( async () => {
+        let container = document.querySelectorAll(`#images-gallery > #body > #images-container > div[class*='img-wrap']`)
+        let raw = await fetch(`https://api.pexels.com/v1/search?query=people&per_page=5&orientation=portrait`,
+            { headers: {
+                Authorization: '563492ad6f917000010000017b6f3158f1794ee085b3def899f919dd'
+            }});
+            let data = await raw.json();
+                    
+        container.forEach((d, i) => {d.innerHTML += `<img src='${data.photos[i].src.medium}'></img>`})
+    }, [])
     return(<>
     <div id="images-gallery">
         <header>
@@ -13,27 +23,27 @@ export default function ProductCounter(){
                 <div className="img-wrap-one">
                     <p>Lorem ipsum dolor sit </p>
                     <div className="gradient"></div>
-                    <img src='https://via.placeholder.com/230x400'></img>
+                    {/* <img src='https://via.placeholder.com/230x400'></img> */}
                 </div>
                 <div className="img-wrap-two">
                     <p>amet consectetur</p>
                     <div className="gradient"></div>
-                    <img src='https://via.placeholder.com/230x400'></img>
+                    {/* <img src='https://via.placeholder.com/230x400'></img> */}
                 </div>
                 <div className="img-wrap-three">
                     <p>adipisicing elit</p>
                     <div className="gradient"></div>
-                       <img src='https://via.placeholder.com/230x400'></img>
+                       {/* <img src='https://via.placeholder.com/230x400'></img> */}
                 </div>
                 <div className="img-wrap-four">
                     <p>Quam corrupti consequatur</p>
                     <div className="gradient"></div>
-                    <img src='https://via.placeholder.com/230x400'></img>
+                    {/* <img src='https://via.placeholder.com/230x400'></img> */}
                 </div>
                 <div className="img-wrap-five">
                     <p>quia magni velit</p>
                     <div className="gradient"></div>
-                    <img src='https://via.placeholder.com/230x400'></img>
+                    {/* <img src='https://via.placeholder.com/230x400'></img> */}
                 </div>
             </div>
         </div>

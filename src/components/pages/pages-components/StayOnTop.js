@@ -4,32 +4,32 @@ import {useState, useEffect} from 'react';
 
 
 export default function StayOnTop(props){
-    let prevScrollPos;
-    let elementTop;
-    let getElementTop = () => {
-        if(elementTop < 0){
-            // StayOnTop.style.position = 'sticky'
-        }
-    }
+    // let prevScrollPos;
+    // let elementTop;
+    // let getElementTop = () => {
+    //     if(elementTop < 0){
+    //         // StayOnTop.style.position = 'sticky'
+    //     }
+    // }
         
-    window.addEventListener('scroll', getElementTop)
+    // window.addEventListener('scroll', getElementTop)
     
-    let displayOnTop = () => {
-        let currentScrollPos = window.scrollY;
-        const stayOnTop = document.querySelector("#stay-on-top");
-        let rect = stayOnTop.getBoundingClientRect();
+    // let displayOnTop = () => {
+    //     let currentScrollPos = window.scrollY;
+    //     const stayOnTop = document.querySelector("#stay-on-top");
+    //     let rect = stayOnTop.getBoundingClientRect();
         
-        if(currentScrollPos < prevScrollPos || currentScrollPos == prevScrollPos){
-            stayOnTop.style.top = '129px'
-        }else{
-            stayOnTop.style.top = '0px'
+    //     if(currentScrollPos < prevScrollPos || currentScrollPos == prevScrollPos){
+    //         stayOnTop.style.top = '129px'
+    //     }else{
+    //         stayOnTop.style.top = '0px'
             
-        }
+    //     }
         
-        prevScrollPos = currentScrollPos;
-    }
+    //     prevScrollPos = currentScrollPos;
+    // }
 
-    window.addEventListener('scroll', displayOnTop);
+    // window.addEventListener('scroll', displayOnTop);
         
     return(
     <>

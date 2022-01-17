@@ -258,7 +258,7 @@ export default function NavBar(){
                         </span>
                     </li>
                     <li className="nav-item">
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(1); setMouseOut(false); setOver(true); setState(!state)}}>HOT OUTFITS</Link>
+                        <Link to='/hot-outfits' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(1); setMouseOut(false); setOver(true); setState(!state)}}>HOT OUTFITS</Link>
                         <span class="material-icons">
                             chevron_right
                         </span>

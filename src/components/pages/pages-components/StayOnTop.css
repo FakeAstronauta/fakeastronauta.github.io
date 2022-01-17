@@ -21,3 +21,12 @@
     width: 50vw;
 }
 
+@media screen and (max-width: 800px) {
+    #stay-on-top > #header{
+        font-size: 1.5em;
+    }
+
+    #stay-on-top{
+        padding: 0.1em 0 0.1em 0;
+    }
+}
