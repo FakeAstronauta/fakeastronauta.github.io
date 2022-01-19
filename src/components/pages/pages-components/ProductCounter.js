@@ -34,6 +34,7 @@ export default function ProductCounter(){
     // have enough time to fix it
     let moveSelector = (n, i) => {
         const smallContainer = document.querySelector('#product-counter > #body > #thumbnail > #img-container > img');
+        const bigContainer = document.querySelector('#product-counter > #body > #image-full-size > img');
         let controllers = document.querySelector('#product-counter > #header > #controllers');
         if(bool != true){
             let buttonSelector = document.getElementById('circle-selector')
@@ -42,6 +43,7 @@ export default function ProductCounter(){
             setTimeout(() => { //change the text at the half of the transition
                 setTextIndex(i);
                 smallContainer.src = imagesUrl[i];
+                bigContainer.src = imagesUrl[(imagesUrl.length / 2) + i]; // add the default image
             }, 500)
         }
         setPhotoIndex(i)
@@ -51,22 +53,24 @@ export default function ProductCounter(){
         const bigContainer = document.querySelector('#product-counter > #body > #image-full-size > img');
         const smallContainer = document.querySelector('#product-counter > #body > #thumbnail > #img-container > img');
         if(imagesUrl.length === 0){
-            let raw = await fetch(`https://api.pexels.com/v1/search?query=perfume&per_page=4&orientation=portrait`,
+            let raw = await fetch(`https://api.pexels.com/v1/search?query=perfume&per_page=8&orientation=portrait`,
             { headers: {
                 Authorization: '563492ad6f917000010000017b6f3158f1794ee085b3def899f919dd'
             }});
             let data = await raw.json();
             data.photos.forEach(async (d, i)=>{
-                imagesUrl.push(d.src.medium);
+                imagesUrl.push(d.src.portrait);
                 // bigContainer.src = d.src.portrait;
                 // smallContainer.src = d.src.medium;
                 // container[i].innerHTML = `<img className='inner-gallery' src='${d.src.medium}'></img>`
             });
+            console.log('fetch')
         }
         smallContainer.src = imagesUrl[0]; // add the default image
+        bigContainer.src = imagesUrl[imagesUrl.length / 2]; // add the default image
+        
     }, [])
 
-    console.log(imagesUrl.length)
     return(<>
         <div id='product-counter'>
             <div id='header'>
