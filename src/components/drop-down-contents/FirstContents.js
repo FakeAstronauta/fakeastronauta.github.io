@@ -4,6 +4,8 @@ import './ContentsStyles.css'
 
 
 export default function FirstContents(props){
+    
+
     return(
         <div className='dropdown-contents'>
             <div className='small-container inter'>

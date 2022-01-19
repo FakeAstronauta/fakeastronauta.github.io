@@ -60,11 +60,7 @@ export default function ProductCounter(){
             let data = await raw.json();
             data.photos.forEach(async (d, i)=>{
                 imagesUrl.push(d.src.portrait);
-                // bigContainer.src = d.src.portrait;
-                // smallContainer.src = d.src.medium;
-                // container[i].innerHTML = `<img className='inner-gallery' src='${d.src.medium}'></img>`
             });
-            console.log('fetch')
         }
         smallContainer.src = imagesUrl[0]; // add the default image
         bigContainer.src = imagesUrl[imagesUrl.length / 2]; // add the default image

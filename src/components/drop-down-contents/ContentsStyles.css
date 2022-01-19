@@ -125,6 +125,20 @@ li{
 .top-margin{
     margin-top: 30px;
 }
+
+.dropdown-small-images{
+    width: 169px;
+    height: 243px;
+    object-fit: cover;
+}
+
+.dropdown-big-image{
+    height: 280px;
+    width: 410px;
+    object-fit: cover;
+}
+
+
 /* media queries */
 
 @media screen and (max-width: 1025px) {

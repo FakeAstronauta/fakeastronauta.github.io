@@ -95,7 +95,9 @@ export default function DropDown(props){
     /** como es esto posible? parece que si dejo el objeto reacciona a todos
      *  los renders del elemento donde lo envian, como si en react todo esta
      *  conectado*/
-    }, [props.contentNumber, props.over, props.ClickOnMenu, showSideMenu]) 
+    }, [props.contentNumber, props.over, props.ClickOnMenu, showSideMenu])
+   
+
     return(
         <div className={showSideMenu ? 'drop-down-menu active-dropdown' : 'drop-down-menu'} >
             <div id="drop-down-container">
