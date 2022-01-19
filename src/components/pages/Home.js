@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import  './Home.css'
 
 import CarouselZoom from './pages-components/CarouselZoom';
@@ -12,6 +13,19 @@ import {Carousel} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function DropDown(){
+    const photoId = ['3811981', '10300959', '6763439']
+    useEffect(async ()=>{
+        let carousel = document.querySelectorAll('.d-block')
+        photoId.forEach(async (d, i)=>{
+            let raw = await fetch(`https://api.pexels.com/v1/photos/${d}&size=small`,
+            { headers: {
+                Authorization: '563492ad6f917000010000017b6f3158f1794ee085b3def899f919dd'
+            }});
+            let data = await raw.json();
+            carousel[i].src = data.src.landscape;
+        })
+    }, [])
+
     return(
     <>
     <style type="text/css">
@@ -32,6 +46,11 @@ export default function DropDown(){
             border-radius: 50%;
             margin-left: 10px;
             margin-right: 10px;
+        }
+
+        .d-block{
+            height: 100vh;
+            object-fit: cover;
         }
 
         h3{
@@ -68,10 +87,9 @@ export default function DropDown(){
         <div className='carousel-container'>
             <Carousel interval={3000}>
                 <Carousel.Item className='header-carousel '>
-                    <div className='header-gradient'/>
+                <div className='header-gradient'/>
                     <img
                     className="d-block w-100"
-                    src="pexels-godisable-jacob-965324.jpg"
                     alt="First slide"
                     />
                     <Carousel.Caption>
@@ -83,7 +101,6 @@ export default function DropDown(){
                     <div className='header-gradient'/>
                     <img
                     className="d-block w-100"
-                    src="pexels-godisable-jacob-965324.jpg"
                     alt="Second slide"
                     />
                     <Carousel.Caption>
@@ -95,7 +112,6 @@ export default function DropDown(){
                     <div className='header-gradient'/>
                     <img
                     className="d-block w-100"
-                    src="pexels-godisable-jacob-965324.jpg"
                     alt="Third slide"
                     />
                     <Carousel.Caption>

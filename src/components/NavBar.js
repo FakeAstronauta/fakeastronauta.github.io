@@ -264,25 +264,25 @@ export default function NavBar(){
                         </span>
                     </li>
                     <li className="nav-item">
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(2); setMouseOut(false); setOver(true); setState(!state)}}>OUR ACCESORIES</Link>
+                        <Link to='/our-accesories' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(2); setMouseOut(false); setOver(true); setState(!state)}}>OUR ACCESORIES</Link>
                         <span class="material-icons">
                             chevron_right
                         </span>
                     </li>
                     <li className="nav-item">
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(3); setMouseOut(false); setOver(true); setState(!state)}}>FRAGANCES</Link>
+                        <Link to='/fragances' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(3); setMouseOut(false); setOver(true); setState(!state)}}>FRAGANCES</Link>
                         <span class="material-icons">
                             chevron_right
                         </span>
                     </li>
                     <li className="nav-item">
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(4); setMouseOut(false); setOver(true); setState(!state)}}>MAKEUP</Link>
+                        <Link to='/make-up' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(4); setMouseOut(false); setOver(true); setState(!state)}}>MAKEUP</Link>
                         <span class="material-icons">
                             chevron_right
                         </span>
                     </li>
                     <li className="nav-item">
-                        <Link to='/' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(5); setMouseOut(false); setOver(true); setState(!state)}}>GIFTS</Link>
+                        <Link to='/gifts' className='nav-links link-style-white' onMouseOver={() => {setcontentNumber(5); setMouseOut(false); setOver(true); setState(!state)}}>GIFTS</Link>
                         <span class="material-icons">
                             chevron_right
                         </span>

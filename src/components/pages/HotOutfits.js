@@ -10,7 +10,7 @@ export default function HotOutfits(){
     <>
         <StaticHeader headerImage='3119709'></StaticHeader>
         <StayOnTop actualPage="Hot outfits"></StayOnTop>
-        <ProductsGrid toSearch='lipstick'/>
+        <ProductsGrid toSearch='outfit'/>
         <ImagesGallery/>
         <Newsletter/>  
     </>);

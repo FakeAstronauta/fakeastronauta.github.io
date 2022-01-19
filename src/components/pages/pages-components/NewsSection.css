@@ -14,7 +14,6 @@
     width: 31vw;
     left: 10%;
     top: 0px;
-    z-index: 1;
     transform:translate(-25vw, -5vh);
 }
 
@@ -27,6 +26,8 @@
     align-items: center;
     position: absolute;
     background-color: #AD0303;
+    z-index: -1;
+
 }
 
 #news-section > #red-box > #text-box{

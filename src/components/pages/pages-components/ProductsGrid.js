@@ -8,6 +8,10 @@ export default function ProductsGrid(props){
     let [stringContent, setStringContent] = useState(' ');
 
     useEffect(async ()=>{
+        if(stringContent != ' '){
+            console.log('reload')
+
+        }
         if(pageNum < 6){
             let raw = await fetch(`https://api.pexels.com/v1/search?query=${props.toSearch}&per_page=16&orientation=landscape&page=${pageNum}`,
             { headers: {

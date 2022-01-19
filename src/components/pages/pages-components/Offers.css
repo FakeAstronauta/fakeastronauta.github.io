@@ -8,7 +8,10 @@
 
 #offers > img{
     width: 50vw;
-    height: auto;
+    height: 45vw;
+    object-fit: cover; 
+    object-position: 30% 30%;
+
 }
 
 #offers > #text{

@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react';
 
 export default function ProductCounter(){
     let [textIndex, setTextIndex] = useState(0);
+    let [imagesUrl, setImagesUrl] = useState([]);
 
     const thumbnailText = [
     'consectetur Magnam sit corporis quidem',
@@ -13,7 +14,7 @@ export default function ProductCounter(){
     ];
 
     let [bool, setBool] = useState(null);  //in this case I need useState because the app is redered after the value changes
-
+    let [photoIndex, setPhotoIndex] = useState(0)
     let windowWidth = window.innerWidth;
 
     let addFade = () => { // el fade ocurre mal, las letras cambian normal. al presionarlo dos veces el fade no ocurre, creo que aun lo acciono antes que termine la transicion. puede que solo sea un limbo mental y que en eralidad solo me quede esperando el fade cuando en realidad no lo accione
@@ -22,7 +23,6 @@ export default function ProductCounter(){
         if(bool != true){
             setBool(true);
             bodyImage.style.animation = 'fadeinout 1s linear none'
-            console.log('fade added')
             setTimeout(() => {
                 bodyImage.style.animation = 'none';
                 setBool(false);
@@ -33,6 +33,7 @@ export default function ProductCounter(){
     // I was not able to fix the bug, when the page resize, the circle stay in the same previous position. I do not 
     // have enough time to fix it
     let moveSelector = (n, i) => {
+        const smallContainer = document.querySelector('#product-counter > #body > #thumbnail > #img-container > img');
         let controllers = document.querySelector('#product-counter > #header > #controllers');
         if(bool != true){
             let buttonSelector = document.getElementById('circle-selector')
@@ -40,10 +41,32 @@ export default function ProductCounter(){
             addFade();
             setTimeout(() => { //change the text at the half of the transition
                 setTextIndex(i);
+                smallContainer.src = imagesUrl[i];
             }, 500)
         }
+        setPhotoIndex(i)
     }
 
+    useEffect(async ()=>{
+        const bigContainer = document.querySelector('#product-counter > #body > #image-full-size > img');
+        const smallContainer = document.querySelector('#product-counter > #body > #thumbnail > #img-container > img');
+        if(imagesUrl.length === 0){
+            let raw = await fetch(`https://api.pexels.com/v1/search?query=perfume&per_page=4&orientation=portrait`,
+            { headers: {
+                Authorization: '563492ad6f917000010000017b6f3158f1794ee085b3def899f919dd'
+            }});
+            let data = await raw.json();
+            data.photos.forEach(async (d, i)=>{
+                imagesUrl.push(d.src.medium);
+                // bigContainer.src = d.src.portrait;
+                // smallContainer.src = d.src.medium;
+                // container[i].innerHTML = `<img className='inner-gallery' src='${d.src.medium}'></img>`
+            });
+        }
+        smallContainer.src = imagesUrl[0]; // add the default image
+    }, [])
+
+    console.log(imagesUrl.length)
     return(<>
         <div id='product-counter'>
             <div id='header'>
@@ -59,7 +82,7 @@ export default function ProductCounter(){
             <div id='body'>
                 <div id='thumbnail'>
                     <div id='img-container'>
-                        <img src='https://via.placeholder.com/130x190'></img>
+                        <img src={imagesUrl[0]}></img>
                     </div>
                     <div id='title-container'>
                         <b>{thumbnailText[textIndex]}</b>

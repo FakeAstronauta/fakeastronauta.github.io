@@ -39,11 +39,11 @@ body{
     z-index: 0;
 }
 
-.inner-gallery{
+.gallery > .gallery-container > .gallery-item > img{
+    height: 28vw;
     width: 18vw;
-    height: auto;
-    background-color: rgb(255, 64, 0);
-    transition: transform .7s;
+    object-fit: cover;
+    transition: transform .7s;  
 }
 
 
@@ -64,7 +64,7 @@ body{
     transform: translateX(40.1vw);
 }
 
-.gallery-item-4 > .inner-gallery{
+.gallery-item-4 > img{
     transform: scale(1.2);
 }
 
@@ -89,19 +89,10 @@ body{
 
 .gallery-control-prev, .gallery-control-next{
     z-index: 0;
-    /* top: 15vw; */
     cursor: pointer;
     font-size: 6em;
-    margin:0 ;
     font-weight: 300;
-}
-
-.gallery-control-prev{
-    /* left: 0vw; */
-}
-
-.gallery-control-next{
-    /* margin-left: 80%; */
+    background: radial-gradient(circle, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 60%);
 }
 
 .gallery > #carousel-footer-container{
@@ -110,23 +101,26 @@ body{
     justify-content: center;
     align-items: center;
     position: absolute;
+    padding: 2em 0 0 0;
     bottom: 20px;
     text-align: center;
-    width: 37vw;
+    width: 100%;
     font-size: 30px;
     font-weight: 500;
     line-height: 25px;
-
+    background: linear-gradient(0deg, rgba(255,255,255,1) 35%, rgba(226,226,226,0) 100%);
 }
 
 @-webkit-keyframes fadeinout {
     0%,100% { opacity: 1; }
     50% { opacity: 0; }   
-  }
-  
-  @keyframes {
-    0%,100% { opacity: 1; }
-    50% { opacity: 0; }
+}
+ 
+.gallery > #carousel-footer-container > .carousel-footer{
+    font-size: 1.1em;
+    width: 50vw;
+    /* text-shadow: 0px 0px 2px #ffffff;
+    color: #AD0303; */
 }
 
 .gallery > #carousel-footer-container > #carousel-black-button{
@@ -144,6 +138,8 @@ body{
     font-size: 13px;
     font-weight: 500;
 }
+
+
 
 .gallery > #single-image{
     display: none;
@@ -178,4 +174,12 @@ body{
         font-size: 11px;
     }
 
+}
+
+@media screen and (max-width: 500px) {
+    .gallery > #carousel-footer-container > .carousel-footer{
+        font-size: 0.8em;
+        line-height: 0.8em;
+        
+    }
 }

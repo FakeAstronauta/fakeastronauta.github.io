@@ -10,7 +10,7 @@ export default function StaticHeader(props){
         
         let raw = await fetch(`https://api.pexels.com/v1/photos/${props.headerImage}&size=small`,
             { headers: {
-                Authorization: '563492ad6f917000010000017b6f3158f1794ee085b3def899f919dd'
+                Authorization: ''
             }});
             let data = await raw.json();
             container.innerHTML = `<img src='${data.src.landscape}'></img>`

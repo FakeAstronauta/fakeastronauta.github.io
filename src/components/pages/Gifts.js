@@ -5,13 +5,12 @@ import ProductsGrid from './pages-components/ProductsGrid';
 import ImagesGallery from './pages-components/ImagesGallery';
 import Newsletter from './pages-components/Newsletter';
 
-export default function Todays(){
-    
+export default function Gifts(){
     return( 
     <>
-        <StaticHeader headerImage='247204'></StaticHeader>
-        <StayOnTop actualPage="Today's"></StayOnTop>
-        <ProductsGrid toSearch='jewels'/>
+        <StaticHeader headerImage='573306'></StaticHeader>
+        <StayOnTop actualPage="Gifts"></StayOnTop>
+        <ProductsGrid toSearch='gifts'/>
         <ImagesGallery/>
         <Newsletter/>
     </>);
