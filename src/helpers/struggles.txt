@@ -78,3 +78,13 @@
     [PENDIENTE]
     - debo mejorar el boton de cierre de el menu, debe cerrar ambos
     - Todos los enlaces deben de ocultar los side menus
+    - La fuente mas grande en el movil
+    - un degradado oscuro arriba para que contraste con las imagenes de fondo
+
+20/01/21
+    [PENDIENTE]
+    FADE ANIMATIONS ONLY WORKING IN EDGE AND CHROME WHEN DEVTOOLS IS ACTIVATED
+    The problem is not the host
+    
+    ALTERNATIVES:
+        - I should use animations and keyframes instead of transition.

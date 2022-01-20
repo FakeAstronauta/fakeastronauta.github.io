@@ -71,13 +71,15 @@ export default function DropDown(props){
                 
                 underlineEffect[props.contentNumber].style.display = 'flex';
                 setTimeout(() =>{
-                    underlineEffect[props.contentNumber].classList.add('opaque');
+                    underlineEffect[props.contentNumber].classList.add('opaque'); // add opacity to the dropdown contents
+                    console.log('added opacity')
                 }, 10)
 
                 if(lastProps != null && lastProps != props.contentNumber){  // avoids that the 0 element deletes itself
                     // remove the last elements tath where shown
-                    underlineEffect[lastProps].classList.remove('opaque');
-
+                    underlineEffect[lastProps].classList.remove('opaque'); // remove opacity to the dropdown contents
+                    console.log('removed opacity')
+                    
                     // setTimeout(() =>{
                     underlineEffect[lastProps].style.display = 'none';
                     // }, 500)
