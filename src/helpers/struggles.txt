@@ -73,3 +73,8 @@
 09/01/21
     [PENDIENTE]
     aun tengo problemas al hacer zoon con el side menu activo, pero necesito seguir
+
+19/01/21
+    [PENDIENTE]
+    - debo mejorar el boton de cierre de el menu, debe cerrar ambos
+    - Todos los enlaces deben de ocultar los side menus

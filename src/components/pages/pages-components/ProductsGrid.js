@@ -21,7 +21,7 @@ export default function ProductsGrid(props){
             for(let a of data.photos){
                 stringContent += `
                 <div class='grid-item'>
-                    <img src=${a.src.tiny}/>
+                    <img src=${a.src.portrait}/>
                     <div class='text-container'>
                         <h4>LOREM IPSUM DOLOR</h4>
                         <bold>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</bold>

@@ -9,17 +9,17 @@ export default function FifthContents(props){
                 <div className='big-container inter'>
                     <ul>
                         <li className='title'>ALIQUAM</li>
-                        <li><Link to='/' class='link'>ELIT</Link></li>
-                        <li><Link to='/' class='link'>SINT</Link> </li>
-                        <li><Link to='/' class='link'>DOLOR, SIT</Link></li>
-                        <li><Link to='/' class='link'>CONSECTETUR</Link></li>
-                        <li><Link to='/' class='link'>SINT ODIT</Link></li>
+                        <li><Link to='/make-up' class='link'>ELIT</Link></li>
+                        <li><Link to='/make-up' class='link'>SINT</Link> </li>
+                        <li><Link to='/make-up' class='link'>DOLOR, SIT</Link></li>
+                        <li><Link to='/make-up' class='link'>CONSECTETUR</Link></li>
+                        <li><Link to='/make-up' class='link'>SINT ODIT</Link></li>
                     </ul>
                     <ul>
                         <li className='top-margin'><Link to='/' class='link'>MOLLITIA</Link></li>
-                        <li><Link to='/' class='link'>CONSECTETUR</Link></li>
-                        <li><Link to='/' class='link'>SINT ODIT</Link> </li>
-                        <li><Link to='/' class='link'>MAGNAM FACILIS MOLLITIA</Link></li>
+                        <li><Link to='/make-up' class='link'>CONSECTETUR</Link></li>
+                        <li><Link to='/make-up' class='link'>SINT ODIT</Link> </li>
+                        <li><Link to='/make-up' class='link'>MAGNAM FACILIS MOLLITIA</Link></li>
                         
                     </ul>
                 </div>
@@ -27,11 +27,11 @@ export default function FifthContents(props){
                     <div className='inner'>
                         <ul>
                             <li className='title'>SINT ODIT</li>
-                            <li><Link to='/' class='link'>DOLOR, SIT</Link></li>
-                            <li><Link to='/' class='link'>CONSECTETUR</Link></li>
-                            <li><Link to='/' class='link'>MAGNAM FACILIS MOLLITIA</Link></li>
-                            <li><Link to='/' class='link'>DOLORES FUGIT QUOD </Link></li>
-                            <li><Link to='/' class='link'>SINT ODIT</Link></li>
+                            <li><Link to='/make-up' class='link'>DOLOR, SIT</Link></li>
+                            <li><Link to='/make-up' class='link'>CONSECTETUR</Link></li>
+                            <li><Link to='/make-up' class='link'>MAGNAM FACILIS MOLLITIA</Link></li>
+                            <li><Link to='/make-up' class='link'>DOLORES FUGIT QUOD </Link></li>
+                            <li><Link to='/make-up' class='link'>SINT ODIT</Link></li>
                         </ul>
                     </div>
                 </div>

@@ -11,7 +11,7 @@ export default function ProductCounter(){
             }});
             let data = await raw.json();
                     
-        container.forEach((d, i) => {d.innerHTML += `<img src='${data.photos[i].src.medium}'></img>`})
+        container.forEach((d, i) => {d.innerHTML += `<img src='${data.photos[i].src.portrait}'></img>`})
     }, [])
     return(<>
     <div id="images-gallery">

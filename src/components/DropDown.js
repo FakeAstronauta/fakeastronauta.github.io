@@ -108,7 +108,8 @@ export default function DropDown(props){
                     <span className='inter'>{titles[props.contentNumber]}</span>
                     {/* TO DO: mejorar este boton para que funcione en ambos side menus */}
                     <span class="material-icons">
-                        close
+                        {/* close */}
+                        {/* this was caused by a bad design, the close button should be over both side menu */}
                     </span>
                 </div>
                 <FirstContents/>

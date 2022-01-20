@@ -48,9 +48,9 @@ export default function NavBar(){
 //         setBackground(data)
 //     }, []);
 
-
 /** esto se acciona cuando el elemento ya esta creado y remueve ciertos elementos de la pagina*/
     useEffect(() => {
+
         // this function is needed, the listener must be removed at the return, but only works with a declared function
         let dropDownEvent = ()=>{setOver(false); setMouseOut(true)}
         
@@ -96,8 +96,16 @@ export default function NavBar(){
                     l.style.color = 'black';
                     setCurrentColor('black') // para evitar confusion cuando el color cambie con los eventos del raton
                 }
-                // the drop down menu display is set to none; but I still need to improve the transition
-                tr();
+                // 
+                /**the drop down menu display is set to none; but I still need to improve the transition
+                 * 
+                 * this condition avoids that when scroll over the side-dropdown it disapears
+                 */
+                if(window.innerWidth > 1025){
+                    tr();
+                }
+
+                // 
             }else{
                 navBar.style.background = 'transparent'
                 let a = document.getElementsByClassName('link-style-white');
@@ -134,6 +142,7 @@ export default function NavBar(){
             let par = document.querySelector(".drop-down-menu");
             // if(ClickOnMenu == false){
             par.style.display = 'none';
+
             // }
         }
 
@@ -222,8 +231,6 @@ export default function NavBar(){
             window.removeEventListener('resize', launchNavBarResize)
             window.removeEventListener('scroll', scrolling);
             window.removeEventListener('wheel', scrolling);
-
-
         }
 
     }, [over, mouseOut, state, window.innerWidth, prevScrollPos, currentScrollPos]);

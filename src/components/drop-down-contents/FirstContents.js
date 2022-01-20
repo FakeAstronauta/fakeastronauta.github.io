@@ -11,11 +11,11 @@ export default function FirstContents(props){
             <div className='small-container inter'>
                 <ul>
                     <li className='title'>LOREM IPSUM</li>
-                    <li><Link to='/' class='link'>DOLOR, SIT AMET</Link></li>
-                    <li><Link to='/' class='link'>CONSECTETUR ADIPISICING</Link></li>
-                    <li><Link to='/' class='link'>ELIT CORPORIS</Link></li>
-                    <li><Link to='/' class='link'>ALIQUAM NESCIUNT ULLAM</Link></li>
-                    <li><Link to='/' class='link'>SINT ODIT TENETUR</Link></li>
+                    <li><Link to='/todays' class='link'>DOLOR, SIT AMET</Link></li>
+                    <li><Link to='/todays' class='link'>CONSECTETUR ADIPISICING</Link></li>
+                    <li><Link to='/todays' class='link'>ELIT CORPORIS</Link></li>
+                    <li><Link to='/todays' class='link'>ALIQUAM NESCIUNT ULLAM</Link></li>
+                    <li><Link to='/todays' class='link'>SINT ODIT TENETUR</Link></li>
                 </ul>
             </div>
         </div>

@@ -19,11 +19,11 @@
 #images-gallery > #body > #images-container > div[class*='img-wrap']{
     position: relative;
     overflow: hidden;
-    background-color: aqua;
     border-radius: 3%;
     display: flex;
     align-items: flex-end;
     justify-items: center;    
+    z-index: -1;
 }
 
 /* tube problemas con el gradient, debido a que div no mantiene un tamaño cuando uno de los valores es
