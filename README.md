@@ -3,4 +3,5 @@
 
 
 ## [click here to watch this website](fakeastronauta.github.io).
+### The api I used is free so it coud take some seconds to load 
 
